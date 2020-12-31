@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 
@@ -8,7 +9,7 @@ namespace WGU_final_stuff
     public class Inventory
     {
         public List<Product> Products { get; set; }
-        public List<Part> AllParts { get; set; }
+        public BindingList<Part> AllParts { get; set; }
 
         public void addProduct(Product product) {
             var id = Products.OrderBy(x => x.ProductID).Last().ProductID;
@@ -35,8 +36,8 @@ namespace WGU_final_stuff
             Products.Add(product);
         }
         public void addPart(Part part) {
-            var id = AllParts.OrderBy(x => x.PartID).Last().PartID;
-            part.PartID = id++;
+            var id = AllParts.Any()? AllParts.OrderBy(x => x.PartID).Last().PartID : 0;
+            part.PartID = ++id;
             AllParts.Add(part);
         }
         public bool deletePart(Part part) {
@@ -53,7 +54,10 @@ namespace WGU_final_stuff
         public Part lookUpPart(int id) {
             return AllParts.Single(x => x.PartID == id);
         }
-        public void updatePart(int id, Part part) { }
+        public void updatePart(int id, Part part) {
+            deletePart(lookUpPart(id));
+            AllParts.Add(part);
+        }
 
     }
 }

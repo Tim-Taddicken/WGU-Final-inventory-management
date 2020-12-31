@@ -1,6 +1,6 @@
 ﻿namespace WGU_final_stuff
 {
-    partial class Form1
+    partial class Main
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.addPartButton = new System.Windows.Forms.Button();
             this.modifyPartButton = new System.Windows.Forms.Button();
             this.deletePartButton = new System.Windows.Forms.Button();
@@ -38,17 +39,24 @@
             this.searchPartsButton = new System.Windows.Forms.Button();
             this.partSearchBox = new System.Windows.Forms.TextBox();
             this.productSearchBox = new System.Windows.Forms.TextBox();
-            this.button9 = new System.Windows.Forms.Button();
+            this.exit_button = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.productsGridView1 = new System.Windows.Forms.DataGridView();
+            this.label3 = new System.Windows.Forms.Label();
+            this.partsGridView = new System.Windows.Forms.DataGridView();
+            this.products_bindings = new System.Windows.Forms.BindingSource(this.components);
+            this.parts_bindings = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.productsGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.partsGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.products_bindings)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.parts_bindings)).BeginInit();
             this.SuspendLayout();
             // 
             // addPartButton
             // 
-            this.addPartButton.Location = new System.Drawing.Point(124, 627);
+            this.addPartButton.Location = new System.Drawing.Point(397, 587);
             this.addPartButton.Name = "addPartButton";
             this.addPartButton.Size = new System.Drawing.Size(101, 46);
             this.addPartButton.TabIndex = 0;
@@ -58,7 +66,7 @@
             // 
             // modifyPartButton
             // 
-            this.modifyPartButton.Location = new System.Drawing.Point(246, 627);
+            this.modifyPartButton.Location = new System.Drawing.Point(519, 587);
             this.modifyPartButton.Name = "modifyPartButton";
             this.modifyPartButton.Size = new System.Drawing.Size(113, 46);
             this.modifyPartButton.TabIndex = 1;
@@ -68,7 +76,7 @@
             // 
             // deletePartButton
             // 
-            this.deletePartButton.Location = new System.Drawing.Point(379, 627);
+            this.deletePartButton.Location = new System.Drawing.Point(652, 587);
             this.deletePartButton.Name = "deletePartButton";
             this.deletePartButton.Size = new System.Drawing.Size(104, 46);
             this.deletePartButton.TabIndex = 2;
@@ -77,16 +85,17 @@
             // 
             // addProductButton
             // 
-            this.addProductButton.Location = new System.Drawing.Point(791, 603);
+            this.addProductButton.Location = new System.Drawing.Point(1114, 587);
             this.addProductButton.Name = "addProductButton";
             this.addProductButton.Size = new System.Drawing.Size(150, 46);
             this.addProductButton.TabIndex = 3;
             this.addProductButton.Text = "Add";
             this.addProductButton.UseVisualStyleBackColor = true;
+            this.addProductButton.Click += new System.EventHandler(this.addProductButton_Click);
             // 
             // modifyProductButton
             // 
-            this.modifyProductButton.Location = new System.Drawing.Point(961, 603);
+            this.modifyProductButton.Location = new System.Drawing.Point(1284, 587);
             this.modifyProductButton.Name = "modifyProductButton";
             this.modifyProductButton.Size = new System.Drawing.Size(150, 46);
             this.modifyProductButton.TabIndex = 4;
@@ -95,7 +104,7 @@
             // 
             // deleteProductButton
             // 
-            this.deleteProductButton.Location = new System.Drawing.Point(1131, 603);
+            this.deleteProductButton.Location = new System.Drawing.Point(1454, 587);
             this.deleteProductButton.Name = "deleteProductButton";
             this.deleteProductButton.Size = new System.Drawing.Size(150, 46);
             this.deleteProductButton.TabIndex = 5;
@@ -104,7 +113,7 @@
             // 
             // searchProductsButton
             // 
-            this.searchProductsButton.Location = new System.Drawing.Point(980, 104);
+            this.searchProductsButton.Location = new System.Drawing.Point(1303, 104);
             this.searchProductsButton.Name = "searchProductsButton";
             this.searchProductsButton.Size = new System.Drawing.Size(95, 39);
             this.searchProductsButton.TabIndex = 8;
@@ -113,7 +122,7 @@
             // 
             // searchPartsButton
             // 
-            this.searchPartsButton.Location = new System.Drawing.Point(292, 104);
+            this.searchPartsButton.Location = new System.Drawing.Point(436, 104);
             this.searchPartsButton.Name = "searchPartsButton";
             this.searchPartsButton.Size = new System.Drawing.Size(113, 39);
             this.searchPartsButton.TabIndex = 9;
@@ -122,26 +131,27 @@
             // 
             // partSearchBox
             // 
-            this.partSearchBox.Location = new System.Drawing.Point(411, 104);
+            this.partSearchBox.Location = new System.Drawing.Point(555, 104);
             this.partSearchBox.Name = "partSearchBox";
             this.partSearchBox.Size = new System.Drawing.Size(200, 39);
             this.partSearchBox.TabIndex = 10;
             // 
             // productSearchBox
             // 
-            this.productSearchBox.Location = new System.Drawing.Point(1081, 104);
+            this.productSearchBox.Location = new System.Drawing.Point(1404, 104);
             this.productSearchBox.Name = "productSearchBox";
             this.productSearchBox.Size = new System.Drawing.Size(200, 39);
             this.productSearchBox.TabIndex = 11;
             // 
-            // button9
+            // exit_button
             // 
-            this.button9.Location = new System.Drawing.Point(1131, 727);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(150, 46);
-            this.button9.TabIndex = 12;
-            this.button9.Text = "Exit";
-            this.button9.UseVisualStyleBackColor = true;
+            this.exit_button.Location = new System.Drawing.Point(1454, 716);
+            this.exit_button.Name = "exit_button";
+            this.exit_button.Size = new System.Drawing.Size(150, 46);
+            this.exit_button.TabIndex = 12;
+            this.exit_button.Text = "Exit";
+            this.exit_button.UseVisualStyleBackColor = true;
+            this.exit_button.Click += new System.EventHandler(this.button9_Click);
             // 
             // label1
             // 
@@ -155,7 +165,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(724, 111);
+            this.label2.Location = new System.Drawing.Point(886, 111);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(106, 32);
             this.label2.TabIndex = 14;
@@ -169,31 +179,56 @@
             this.checkedListBox1.Size = new System.Drawing.Size(8, 4);
             this.checkedListBox1.TabIndex = 16;
             // 
-            // dataGridView1
+            // productsGridView1
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(719, 149);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidth = 82;
-            this.dataGridView1.RowTemplate.Height = 41;
-            this.dataGridView1.Size = new System.Drawing.Size(714, 425);
-            this.dataGridView1.TabIndex = 18;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.productsGridView1.AllowUserToAddRows = false;
+            this.productsGridView1.AllowUserToDeleteRows = false;
+            this.productsGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.productsGridView1.Location = new System.Drawing.Point(890, 153);
+            this.productsGridView1.Name = "productsGridView1";
+            this.productsGridView1.ReadOnly = true;
+            this.productsGridView1.RowHeadersWidth = 82;
+            this.productsGridView1.RowTemplate.Height = 41;
+            this.productsGridView1.Size = new System.Drawing.Size(714, 425);
+            this.productsGridView1.TabIndex = 18;
+            this.productsGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(2, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(348, 32);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "Inventory Management System";
+            // 
+            // partsGridView
+            // 
+            this.partsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.partsGridView.Location = new System.Drawing.Point(44, 153);
+            this.partsGridView.Name = "partsGridView";
+            this.partsGridView.RowHeadersWidth = 82;
+            this.partsGridView.RowTemplate.Height = 41;
+            this.partsGridView.Size = new System.Drawing.Size(714, 425);
+            this.partsGridView.TabIndex = 20;
+            // 
+            // parts_bindings
+            // 
+            this.parts_bindings.CurrentChanged += new System.EventHandler(this.bindingSource2_CurrentChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(1496, 807);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(1674, 807);
+            this.Controls.Add(this.partsGridView);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.productsGridView1);
             this.Controls.Add(this.checkedListBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button9);
+            this.Controls.Add(this.exit_button);
             this.Controls.Add(this.productSearchBox);
             this.Controls.Add(this.partSearchBox);
             this.Controls.Add(this.searchPartsButton);
@@ -205,9 +240,12 @@
             this.Controls.Add(this.modifyPartButton);
             this.Controls.Add(this.addPartButton);
             this.Name = "Form1";
-            this.Text = "Inventory Management System";
+            this.Text = "Main";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productsGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.partsGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.products_bindings)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.parts_bindings)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -225,11 +263,15 @@
         private System.Windows.Forms.Button searchPartsButton;
         private System.Windows.Forms.TextBox partSearchBox;
         private System.Windows.Forms.TextBox productSearchBox;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button exit_button;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckedListBox checkedListBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView productsGridView1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridView partsGridView;
+        private System.Windows.Forms.BindingSource products_bindings;
+        private System.Windows.Forms.BindingSource parts_bindings;
     }
 }
 

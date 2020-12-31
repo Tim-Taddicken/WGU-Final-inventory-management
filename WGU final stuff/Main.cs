@@ -11,14 +11,22 @@ using System.Windows.Forms;
 
 namespace WGU_final_stuff
 {
-    public partial class Form1 : Form
+    public partial class Main : Form
     {
+        //public void updatePartsGrid() {
+        //  var test = Inventory;
+        //    partsGridView.Update();
+        //    partsGridView.Refresh();
+            
+        //   //partsGridView.DataSource = parts_bindings;
+           
+        //}
         public Inventory Inventory { get; set; }
  //       public DataGridView DataGridView1 = new DataGridView();
         
-        public Form1()
+        public Main()
         {
-            Inventory = new Inventory { Products = GetProducts(),AllParts= new List<Part>()};
+            Inventory = new Inventory { Products = GetProducts(),AllParts= new BindingList<Part>()};
             InitializeComponent();
             
 
@@ -66,29 +74,29 @@ namespace WGU_final_stuff
         }
         private void button1_Click(object sender, EventArgs e)
         {
-           
+            var form2 = new AddPart();
+            form2.Inventory = Inventory;
+  
+            form2.ShowDialog();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
-            dataGridView1.DataSource = Inventory.Products;
+            parts_bindings.DataSource = Inventory.AllParts;
+            productsGridView1.DataSource = Inventory.Products;
+            partsGridView.DataSource = parts_bindings;
+            
         }
 
         private void modifyPartButton_Click(object sender, EventArgs e)
         {
-            if (Inventory.Products != null) { 
-            StringBuilder sb = new StringBuilder();
+            if (partsGridView.SelectedRows.Count > 0) {
+            var selectedRow = partsGridView.SelectedRows[0].DataBoundItem as Part;
+            var modify = new ModifyPart(selectedRow);
+         //   var selectedRows = partsGridView.SelectedRows[0];
+            modify.Inventory = Inventory;
 
-            foreach (var item in Inventory.Products)
-            {
-                sb.AppendLine(item.Name.ToString());
-            }
-            MessageBox.Show(sb.ToString());
-            }
-            else
-            {
-                MessageBox.Show("You Lost your List");
+            modify.ShowDialog();
             }
         }
 
@@ -97,7 +105,20 @@ namespace WGU_final_stuff
 
         }
 
-        
+        private void addProductButton_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void bindingSource2_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }
