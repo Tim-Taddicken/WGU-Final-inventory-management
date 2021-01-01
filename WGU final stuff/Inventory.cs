@@ -8,7 +8,7 @@ namespace WGU_final_stuff
 {
     public class Inventory
     {
-        public List<Product> Products { get; set; }
+        public BindingList<Product> Products { get; set; }
         public BindingList<Part> AllParts { get; set; }
 
         public void addProduct(Product product) {

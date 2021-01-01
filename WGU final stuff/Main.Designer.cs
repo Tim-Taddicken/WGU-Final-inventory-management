@@ -82,6 +82,7 @@
             this.deletePartButton.TabIndex = 2;
             this.deletePartButton.Text = "Delete";
             this.deletePartButton.UseVisualStyleBackColor = true;
+            this.deletePartButton.Click += new System.EventHandler(this.deletePartButton_Click);
             // 
             // addProductButton
             // 
@@ -110,6 +111,7 @@
             this.deleteProductButton.TabIndex = 5;
             this.deleteProductButton.Text = "Delete";
             this.deleteProductButton.UseVisualStyleBackColor = true;
+            this.deleteProductButton.Click += new System.EventHandler(this.DeleteProductButton_Click);
             // 
             // searchProductsButton
             // 
@@ -216,7 +218,7 @@
             // 
             this.parts_bindings.CurrentChanged += new System.EventHandler(this.bindingSource2_CurrentChanged);
             // 
-            // Form1
+            // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -239,7 +241,7 @@
             this.Controls.Add(this.deletePartButton);
             this.Controls.Add(this.modifyPartButton);
             this.Controls.Add(this.addPartButton);
-            this.Name = "Form1";
+            this.Name = "Main";
             this.Text = "Main";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.productsGridView1)).EndInit();

@@ -23,12 +23,16 @@ namespace WGU_final_stuff
             modify_Part_Max_Field.Value = part.Max;
             modify_Part_Min_Field.Value = part.Min;
 
-            if (part is Outsourced)
+            if (modify_Part_Outsourced_Radio.Checked)
             {
-              //  modify_Part_Companyname_Field.Text = ;
-            }else if(part is InHouse)
+                var temp = part as Outsourced;
+                modify_Part_Companyname_Field.Text = temp.CompanyName;
+
+            }
+            else if (modify_Part_Inhouse_Radio.Checked)
             {
-               // modify_Part_Companyname_Field = ;
+                var temp2 = part as InHouse; 
+                modify_Part_MachineID_Field.Value = temp2.MachineID;
             }
             
         }

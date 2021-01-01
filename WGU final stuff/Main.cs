@@ -13,17 +13,9 @@ namespace WGU_final_stuff
 {
     public partial class Main : Form
     {
-        //public void updatePartsGrid() {
-        //  var test = Inventory;
-        //    partsGridView.Update();
-        //    partsGridView.Refresh();
-            
-        //   //partsGridView.DataSource = parts_bindings;
-           
-        //}
-        public Inventory Inventory { get; set; }
- //       public DataGridView DataGridView1 = new DataGridView();
         
+        public Inventory Inventory { get; set; }
+         
         public Main()
         {
             Inventory = new Inventory { Products = GetProducts(),AllParts= new BindingList<Part>()};
@@ -31,9 +23,9 @@ namespace WGU_final_stuff
             
 
         }
-        public List<Product> GetProducts()
+        public BindingList<Product> GetProducts()
         {
-            List<Product> list = new List<Product>();
+            BindingList<Product> list = new BindingList<Product>();
             list.Add(new Product()
             {
                 ProductID = 1,
@@ -118,6 +110,27 @@ namespace WGU_final_stuff
         private void bindingSource2_CurrentChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void DeleteProductButton_Click(object sender, EventArgs e)
+        {
+            var selectedRow = productsGridView1.SelectedRows[0].DataBoundItem as Product;
+            try
+            {
+                Inventory.removeProduct(selectedRow.ProductID);
+            }
+            catch (InvalidCastException f)
+            {
+
+                throw new Exception("this is what i got ", f);
+            }
+            
+        }
+
+        private void deletePartButton_Click(object sender, EventArgs e)
+        {
+            var selectedRow = partsGridView.SelectedRows[0].DataBoundItem as Part;
+            Inventory.deletePart(selectedRow);
         }
     }
 
