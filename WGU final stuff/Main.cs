@@ -99,7 +99,9 @@ namespace WGU_final_stuff
 
         private void addProductButton_Click(object sender, EventArgs e)
         {
-            
+            var form2 = new AddProduct();
+            form2.Inventory = Inventory;
+            form2.ShowDialog();
         }
 
         private void button9_Click(object sender, EventArgs e)
@@ -119,7 +121,7 @@ namespace WGU_final_stuff
             {
                 Inventory.removeProduct(selectedRow.ProductID);
             }
-            catch (InvalidCastException f)
+            catch (Exception f)
             {
 
                 throw new Exception("this is what i got ", f);
@@ -131,6 +133,13 @@ namespace WGU_final_stuff
         {
             var selectedRow = partsGridView.SelectedRows[0].DataBoundItem as Part;
             Inventory.deletePart(selectedRow);
+        }
+
+        private void modifyProductButton_Click(object sender, EventArgs e)
+        {
+            var form2 = new AddProduct();
+            form2.Inventory = Inventory;
+            form2.ShowDialog();
         }
     }
 
