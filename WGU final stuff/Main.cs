@@ -33,7 +33,8 @@ namespace WGU_final_stuff
                 Price = 1,
                 InStock = 5,
                 Min = 3,
-                Max = 4
+                Max = 4,
+                AssociatedParts = new BindingList<Part>()
             });
             list.Add(new Product()
             {
@@ -42,7 +43,8 @@ namespace WGU_final_stuff
                 Price = 2,
                 InStock = 5,
                 Min = 3,
-                Max = 4
+                Max = 4,
+                AssociatedParts = new BindingList<Part>()
             });
             list.Add(new Product()
             {
@@ -51,8 +53,9 @@ namespace WGU_final_stuff
                 Price = 5,
                 InStock = 5,
                 Min = 3,
-                Max = 4
-            });
+                Max = 4,
+                AssociatedParts = new BindingList<Part>()
+            }) ;
             list.Add(new Product()
             {
                 ProductID = 4,
@@ -60,7 +63,8 @@ namespace WGU_final_stuff
                 Price = 3,
                 InStock = 5,
                 Min = 3,
-                Max = 4
+                Max = 4,
+                AssociatedParts = new BindingList<Part>()
             });
             return list;
         }
@@ -68,7 +72,6 @@ namespace WGU_final_stuff
         {
             var form2 = new AddPart();
             form2.Inventory = Inventory;
-  
             form2.ShowDialog();
         }
 
@@ -83,13 +86,14 @@ namespace WGU_final_stuff
         private void modifyPartButton_Click(object sender, EventArgs e)
         {
             if (partsGridView.SelectedRows.Count > 0) {
-            var selectedRow = partsGridView.SelectedRows[0].DataBoundItem as Part;
-            var modify = new ModifyPart(selectedRow);
-         //   var selectedRows = partsGridView.SelectedRows[0];
-            modify.Inventory = Inventory;
-
-            modify.ShowDialog();
+                
+                
+                var selectedRow = partsGridView.SelectedRows[0].DataBoundItem as Part; 
+                var modify = new ModifyPart(selectedRow);         
+                modify.Inventory = Inventory;
+                modify.ShowDialog();                
             }
+            MessageBox.Show("Please Select Part first, then select modify");
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -99,8 +103,12 @@ namespace WGU_final_stuff
 
         private void addProductButton_Click(object sender, EventArgs e)
         {
-            var form2 = new AddProduct();
+            //to collect and send product
+           
+            //end collection
+            var form2 = new Form1();
             form2.Inventory = Inventory;
+            form2.SetViewParts();
             form2.ShowDialog();
         }
 
@@ -137,9 +145,17 @@ namespace WGU_final_stuff
 
         private void modifyProductButton_Click(object sender, EventArgs e)
         {
-            var form2 = new AddProduct();
-            form2.Inventory = Inventory;
-            form2.ShowDialog();
+            if (productsGridView1.SelectedRows.Count > 0)
+            {
+                
+                var form2 = new Form1();
+                form2.Inventory = Inventory;
+                form2.SetViewParts();
+                form2.ModifyProduct(productsGridView1.SelectedRows[0].DataBoundItem as Product);
+                form2.ShowDialog();
+            }
+            MessageBox.Show("Please select a product and try again or select add for new");
+            
         }
     }
 

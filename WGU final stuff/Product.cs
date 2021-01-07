@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 
@@ -7,7 +8,7 @@ namespace WGU_final_stuff
 {
     public class Product
     {
-        public List<Part> AssociatedParts { get; set; }
+        public BindingList<Part> AssociatedParts { get; set; }
         public int ProductID { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }

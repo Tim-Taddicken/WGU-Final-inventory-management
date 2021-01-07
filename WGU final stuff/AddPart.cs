@@ -16,7 +16,14 @@ namespace WGU_final_stuff
         public AddPart()
         {
             InitializeComponent();
-            
+            //Hide arrows
+            add_Part_Max_Field.Controls[0].Visible = false;
+            add_Part_Min_Field.Controls[0].Visible = false;
+            add_Part_Price_Field.Controls[0].Visible = false;
+            add_Part_Inventory_Field.Controls[0].Visible = false;
+            add_Part_Inhouse_Field.Controls[0].Visible = false;
+            //end/hide arrows
+
         }
 
         private void cancel_button_Click(object sender, EventArgs e)
@@ -52,11 +59,11 @@ namespace WGU_final_stuff
             if (inhouse_radio.Checked) { 
             Inventory.addPart(new InHouse { 
                 Name = add_Part_Name_Field.Text, Min = (int)add_Part_Min_Field.Value, Max = (int)add_Part_Max_Field.Value, 
-                InStock = (int)add_Part_Inventory_Field.Value, Price = add_Product_Price_Field.Value, MachineID = (int)add_Part_Inhouse_Field.Value});
+                InStock = (int)add_Part_Inventory_Field.Value, Price = add_Part_Price_Field.Value, MachineID = (int)add_Part_Inhouse_Field.Value});
             }
             else { 
             Inventory.addPart(new Outsourced { Name = add_Part_Name_Field.Text, Min = (int)add_Part_Min_Field.Value, 
-                Max = (int)add_Part_Max_Field.Value, InStock = (int)add_Part_Inventory_Field.Value, Price = add_Product_Price_Field.Value, 
+                Max = (int)add_Part_Max_Field.Value, InStock = (int)add_Part_Inventory_Field.Value, Price = add_Part_Price_Field.Value, 
                 CompanyName = add_Part_Outsourced_Field.Text });
             }
             this.Close();

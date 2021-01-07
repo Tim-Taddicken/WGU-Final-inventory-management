@@ -35,7 +35,7 @@ namespace WGU_final_stuff
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.add_Part_Name_Field = new System.Windows.Forms.TextBox();
             this.add_Part_Outsourced_Field = new System.Windows.Forms.TextBox();
-            this.save_button = new System.Windows.Forms.Button();
+            this.add_Part_Save_Button = new System.Windows.Forms.Button();
             this.cancel_button = new System.Windows.Forms.Button();
             this.ID = new System.Windows.Forms.Label();
             this.name_label1 = new System.Windows.Forms.Label();
@@ -49,13 +49,13 @@ namespace WGU_final_stuff
             this.add_Part_Min_Field = new System.Windows.Forms.NumericUpDown();
             this.add_Part_Max_Field = new System.Windows.Forms.NumericUpDown();
             this.add_Part_Inventory_Field = new System.Windows.Forms.NumericUpDown();
-            this.add_Product_Price_Field = new System.Windows.Forms.NumericUpDown();
+            this.add_Part_Price_Field = new System.Windows.Forms.NumericUpDown();
             this.add_Part_Inhouse_Field = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.add_Part_Min_Field)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.add_Part_Max_Field)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.add_Part_Inventory_Field)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.add_Product_Price_Field)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.add_Part_Price_Field)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.add_Part_Inhouse_Field)).BeginInit();
             this.SuspendLayout();
             // 
@@ -111,15 +111,15 @@ namespace WGU_final_stuff
             this.add_Part_Outsourced_Field.Size = new System.Drawing.Size(200, 39);
             this.add_Part_Outsourced_Field.TabIndex = 8;
             // 
-            // save_button
+            // add_Part_Save_Button
             // 
-            this.save_button.Location = new System.Drawing.Point(311, 680);
-            this.save_button.Name = "save_button";
-            this.save_button.Size = new System.Drawing.Size(150, 46);
-            this.save_button.TabIndex = 9;
-            this.save_button.Text = "Save";
-            this.save_button.UseVisualStyleBackColor = true;
-            this.save_button.Click += new System.EventHandler(this.save_button_Click);
+            this.add_Part_Save_Button.Location = new System.Drawing.Point(311, 680);
+            this.add_Part_Save_Button.Name = "add_Part_Save_Button";
+            this.add_Part_Save_Button.Size = new System.Drawing.Size(150, 46);
+            this.add_Part_Save_Button.TabIndex = 9;
+            this.add_Part_Save_Button.Text = "Save";
+            this.add_Part_Save_Button.UseVisualStyleBackColor = true;
+            this.add_Part_Save_Button.Click += new System.EventHandler(this.save_button_Click);
             // 
             // cancel_button
             // 
@@ -234,13 +234,13 @@ namespace WGU_final_stuff
             this.add_Part_Inventory_Field.Size = new System.Drawing.Size(198, 39);
             this.add_Part_Inventory_Field.TabIndex = 22;
             // 
-            // add_Product_Price_Field
+            // add_Part_Price_Field
             // 
-            this.add_Product_Price_Field.DecimalPlaces = 2;
-            this.add_Product_Price_Field.Location = new System.Drawing.Point(313, 369);
-            this.add_Product_Price_Field.Name = "add_Product_Price_Field";
-            this.add_Product_Price_Field.Size = new System.Drawing.Size(198, 39);
-            this.add_Product_Price_Field.TabIndex = 23;
+            this.add_Part_Price_Field.DecimalPlaces = 2;
+            this.add_Part_Price_Field.Location = new System.Drawing.Point(313, 369);
+            this.add_Part_Price_Field.Name = "add_Part_Price_Field";
+            this.add_Part_Price_Field.Size = new System.Drawing.Size(198, 39);
+            this.add_Part_Price_Field.TabIndex = 23;
             // 
             // add_Part_Inhouse_Field
             // 
@@ -255,7 +255,7 @@ namespace WGU_final_stuff
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(814, 763);
             this.Controls.Add(this.add_Part_Inhouse_Field);
-            this.Controls.Add(this.add_Product_Price_Field);
+            this.Controls.Add(this.add_Part_Price_Field);
             this.Controls.Add(this.add_Part_Inventory_Field);
             this.Controls.Add(this.add_Part_Max_Field);
             this.Controls.Add(this.add_Part_Min_Field);
@@ -269,7 +269,7 @@ namespace WGU_final_stuff
             this.Controls.Add(this.name_label1);
             this.Controls.Add(this.ID);
             this.Controls.Add(this.cancel_button);
-            this.Controls.Add(this.save_button);
+            this.Controls.Add(this.add_Part_Save_Button);
             this.Controls.Add(this.add_Part_Outsourced_Field);
             this.Controls.Add(this.add_Part_Name_Field);
             this.Controls.Add(this.textBox1);
@@ -281,7 +281,7 @@ namespace WGU_final_stuff
             ((System.ComponentModel.ISupportInitialize)(this.add_Part_Min_Field)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.add_Part_Max_Field)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.add_Part_Inventory_Field)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.add_Product_Price_Field)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.add_Part_Price_Field)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.add_Part_Inhouse_Field)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -300,7 +300,7 @@ namespace WGU_final_stuff
         private System.Windows.Forms.Label name_label1;
         private System.Windows.Forms.Label ID;
         private System.Windows.Forms.Button cancel_button;
-        private System.Windows.Forms.Button save_button;
+        private System.Windows.Forms.Button add_Part_Save_Button;
         private System.Windows.Forms.TextBox add_Part_Outsourced_Field;
         private System.Windows.Forms.TextBox add_Part_Name_Field;
         private System.Windows.Forms.TextBox textBox1;
@@ -310,7 +310,7 @@ namespace WGU_final_stuff
         private System.Windows.Forms.NumericUpDown add_Part_Max_Field;
         private System.Windows.Forms.NumericUpDown add_Part_Min_Field;
         private System.Windows.Forms.NumericUpDown add_Part_Inventory_Field;
-        private System.Windows.Forms.NumericUpDown add_Product_Price_Field;
+        private System.Windows.Forms.NumericUpDown add_Part_Price_Field;
         private System.Windows.Forms.NumericUpDown add_Part_Inhouse_Field;
     }
 }

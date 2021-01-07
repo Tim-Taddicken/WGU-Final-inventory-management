@@ -48,8 +48,9 @@ namespace WGU_final_stuff
             this.label8 = new System.Windows.Forms.Label();
             this.modify_Part_Save_Button = new System.Windows.Forms.Button();
             this.modify_Part_Cancel_Button = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
+            this.modify_Part_CompanyName_Label = new System.Windows.Forms.Label();
             this.modify_Part_Companyname_Field = new System.Windows.Forms.TextBox();
+            this.Inventory_Validation_label = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.modify_Part_Inventory_Field)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.modify_Part_Price_Field)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.modify_Part_Max_Field)).BeginInit();
@@ -76,6 +77,7 @@ namespace WGU_final_stuff
             this.modify_Part_Inhouse_Radio.TabStop = true;
             this.modify_Part_Inhouse_Radio.Text = "In-House";
             this.modify_Part_Inhouse_Radio.UseVisualStyleBackColor = true;
+            this.modify_Part_Inhouse_Radio.CheckedChanged += new System.EventHandler(this.modify_Part_Inhouse_Radio_CheckedChanged);
             // 
             // modify_Part_Outsourced_Radio
             // 
@@ -87,6 +89,7 @@ namespace WGU_final_stuff
             this.modify_Part_Outsourced_Radio.TabStop = true;
             this.modify_Part_Outsourced_Radio.Text = "Outsourced";
             this.modify_Part_Outsourced_Radio.UseVisualStyleBackColor = true;
+            this.modify_Part_Outsourced_Radio.CheckedChanged += new System.EventHandler(this.modify_Part_Outsourced_Radio_CheckedChanged);
             // 
             // modify_Part_ID_Field
             // 
@@ -98,6 +101,7 @@ namespace WGU_final_stuff
             // 
             // modify_Part_Name_Field
             // 
+            this.modify_Part_Name_Field.BackColor = System.Drawing.Color.Tomato;
             this.modify_Part_Name_Field.Location = new System.Drawing.Point(274, 218);
             this.modify_Part_Name_Field.Name = "modify_Part_Name_Field";
             this.modify_Part_Name_Field.Size = new System.Drawing.Size(200, 39);
@@ -105,6 +109,7 @@ namespace WGU_final_stuff
             // 
             // modify_Part_Inventory_Field
             // 
+            this.modify_Part_Inventory_Field.BackColor = System.Drawing.Color.Tomato;
             this.modify_Part_Inventory_Field.Location = new System.Drawing.Point(274, 289);
             this.modify_Part_Inventory_Field.Name = "modify_Part_Inventory_Field";
             this.modify_Part_Inventory_Field.Size = new System.Drawing.Size(240, 39);
@@ -112,28 +117,32 @@ namespace WGU_final_stuff
             // 
             // modify_Part_Price_Field
             // 
-            this.modify_Part_Price_Field.Location = new System.Drawing.Point(274, 362);
+            this.modify_Part_Price_Field.BackColor = System.Drawing.Color.Tomato;
+            this.modify_Part_Price_Field.Location = new System.Drawing.Point(274, 380);
             this.modify_Part_Price_Field.Name = "modify_Part_Price_Field";
             this.modify_Part_Price_Field.Size = new System.Drawing.Size(240, 39);
             this.modify_Part_Price_Field.TabIndex = 6;
             // 
             // modify_Part_Max_Field
             // 
-            this.modify_Part_Max_Field.Location = new System.Drawing.Point(274, 434);
+            this.modify_Part_Max_Field.BackColor = System.Drawing.Color.Tomato;
+            this.modify_Part_Max_Field.Location = new System.Drawing.Point(274, 452);
             this.modify_Part_Max_Field.Name = "modify_Part_Max_Field";
             this.modify_Part_Max_Field.Size = new System.Drawing.Size(119, 39);
             this.modify_Part_Max_Field.TabIndex = 7;
             // 
             // modify_Part_Min_Field
             // 
-            this.modify_Part_Min_Field.Location = new System.Drawing.Point(532, 434);
+            this.modify_Part_Min_Field.BackColor = System.Drawing.Color.Tomato;
+            this.modify_Part_Min_Field.Location = new System.Drawing.Point(532, 452);
             this.modify_Part_Min_Field.Name = "modify_Part_Min_Field";
             this.modify_Part_Min_Field.Size = new System.Drawing.Size(100, 39);
             this.modify_Part_Min_Field.TabIndex = 8;
             // 
             // modify_Part_MachineID_Field
             // 
-            this.modify_Part_MachineID_Field.Location = new System.Drawing.Point(274, 508);
+            this.modify_Part_MachineID_Field.BackColor = System.Drawing.Color.Tomato;
+            this.modify_Part_MachineID_Field.Location = new System.Drawing.Point(274, 526);
             this.modify_Part_MachineID_Field.Name = "modify_Part_MachineID_Field";
             this.modify_Part_MachineID_Field.Size = new System.Drawing.Size(240, 39);
             this.modify_Part_MachineID_Field.TabIndex = 9;
@@ -168,7 +177,7 @@ namespace WGU_final_stuff
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(121, 369);
+            this.label5.Location = new System.Drawing.Point(121, 387);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(121, 32);
             this.label5.TabIndex = 13;
@@ -177,7 +186,7 @@ namespace WGU_final_stuff
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(183, 441);
+            this.label6.Location = new System.Drawing.Point(183, 459);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(59, 32);
             this.label6.TabIndex = 14;
@@ -186,7 +195,7 @@ namespace WGU_final_stuff
             // modify_Part_MachineID_Label
             // 
             this.modify_Part_MachineID_Label.AutoSize = true;
-            this.modify_Part_MachineID_Label.Location = new System.Drawing.Point(106, 508);
+            this.modify_Part_MachineID_Label.Location = new System.Drawing.Point(106, 526);
             this.modify_Part_MachineID_Label.Name = "modify_Part_MachineID_Label";
             this.modify_Part_MachineID_Label.Size = new System.Drawing.Size(136, 32);
             this.modify_Part_MachineID_Label.TabIndex = 15;
@@ -195,7 +204,7 @@ namespace WGU_final_stuff
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(458, 441);
+            this.label8.Location = new System.Drawing.Point(458, 459);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(56, 32);
             this.label8.TabIndex = 16;
@@ -221,29 +230,42 @@ namespace WGU_final_stuff
             this.modify_Part_Cancel_Button.UseVisualStyleBackColor = true;
             this.modify_Part_Cancel_Button.Click += new System.EventHandler(this.modify_Part_Cancel_Button_Click);
             // 
-            // label7
+            // modify_Part_CompanyName_Label
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(59, 515);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(183, 32);
-            this.label7.TabIndex = 19;
-            this.label7.Text = "Company name";
+            this.modify_Part_CompanyName_Label.AutoSize = true;
+            this.modify_Part_CompanyName_Label.Location = new System.Drawing.Point(59, 532);
+            this.modify_Part_CompanyName_Label.Name = "modify_Part_CompanyName_Label";
+            this.modify_Part_CompanyName_Label.Size = new System.Drawing.Size(183, 32);
+            this.modify_Part_CompanyName_Label.TabIndex = 19;
+            this.modify_Part_CompanyName_Label.Text = "Company name";
             // 
             // modify_Part_Companyname_Field
             // 
-            this.modify_Part_Companyname_Field.Location = new System.Drawing.Point(274, 507);
+            this.modify_Part_Companyname_Field.BackColor = System.Drawing.Color.Tomato;
+            this.modify_Part_Companyname_Field.Location = new System.Drawing.Point(274, 526);
             this.modify_Part_Companyname_Field.Name = "modify_Part_Companyname_Field";
             this.modify_Part_Companyname_Field.Size = new System.Drawing.Size(240, 39);
             this.modify_Part_Companyname_Field.TabIndex = 20;
+            // 
+            // Inventory_Validation_label
+            // 
+            this.Inventory_Validation_label.AutoSize = true;
+            this.Inventory_Validation_label.ForeColor = System.Drawing.Color.Crimson;
+            this.Inventory_Validation_label.Location = new System.Drawing.Point(178, 331);
+            this.Inventory_Validation_label.Name = "Inventory_Validation_label";
+            this.Inventory_Validation_label.Size = new System.Drawing.Size(454, 32);
+            this.Inventory_Validation_label.TabIndex = 21;
+            this.Inventory_Validation_label.Text = "Inventory must be between min and max";
+            this.Inventory_Validation_label.Visible = false;
             // 
             // ModifyPart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(814, 763);
+            this.Controls.Add(this.Inventory_Validation_label);
             this.Controls.Add(this.modify_Part_Companyname_Field);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.modify_Part_CompanyName_Label);
             this.Controls.Add(this.modify_Part_Cancel_Button);
             this.Controls.Add(this.modify_Part_Save_Button);
             this.Controls.Add(this.label8);
@@ -296,7 +318,8 @@ namespace WGU_final_stuff
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button modify_Part_Save_Button;
         private System.Windows.Forms.Button modify_Part_Cancel_Button;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label modify_Part_CompanyName_Label;
         private System.Windows.Forms.TextBox modify_Part_Companyname_Field;
+        private System.Windows.Forms.Label Inventory_Validation_label;
     }
 }
