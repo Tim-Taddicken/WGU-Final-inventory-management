@@ -68,7 +68,7 @@ namespace WGU_final_stuff
             this.add_Product_Parts_OnProduct_View.RowHeadersWidth = 82;
             this.add_Product_Parts_OnProduct_View.RowTemplate.Height = 41;
             this.add_Product_Parts_OnProduct_View.Size = new System.Drawing.Size(775, 319);
-            this.add_Product_Parts_OnProduct_View.TabIndex = 0;
+            this.add_Product_Parts_OnProduct_View.TabIndex = 8;
             this.add_Product_Parts_OnProduct_View.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // add_Product_Associated_Parts_View
@@ -79,7 +79,7 @@ namespace WGU_final_stuff
             this.add_Product_Associated_Parts_View.RowHeadersWidth = 82;
             this.add_Product_Associated_Parts_View.RowTemplate.Height = 41;
             this.add_Product_Associated_Parts_View.Size = new System.Drawing.Size(775, 316);
-            this.add_Product_Associated_Parts_View.TabIndex = 1;
+            this.add_Product_Associated_Parts_View.TabIndex = 10;
             // 
             // add_Product_Price_Field
             // 
@@ -87,14 +87,14 @@ namespace WGU_final_stuff
             this.add_Product_Price_Field.Location = new System.Drawing.Point(355, 713);
             this.add_Product_Price_Field.Name = "add_Product_Price_Field";
             this.add_Product_Price_Field.Size = new System.Drawing.Size(200, 39);
-            this.add_Product_Price_Field.TabIndex = 2;
+            this.add_Product_Price_Field.TabIndex = 3;
             // 
             // add_Product_Min_Field
             // 
             this.add_Product_Min_Field.Location = new System.Drawing.Point(513, 794);
             this.add_Product_Min_Field.Name = "add_Product_Min_Field";
             this.add_Product_Min_Field.Size = new System.Drawing.Size(120, 39);
-            this.add_Product_Min_Field.TabIndex = 3;
+            this.add_Product_Min_Field.TabIndex = 5;
             // 
             // add_Product_Max_Field
             // 
@@ -108,14 +108,14 @@ namespace WGU_final_stuff
             this.add_Product_Inventory_Field.Location = new System.Drawing.Point(355, 631);
             this.add_Product_Inventory_Field.Name = "add_Product_Inventory_Field";
             this.add_Product_Inventory_Field.Size = new System.Drawing.Size(200, 39);
-            this.add_Product_Inventory_Field.TabIndex = 5;
+            this.add_Product_Inventory_Field.TabIndex = 2;
             // 
             // add_Product_Name_Field
             // 
             this.add_Product_Name_Field.Location = new System.Drawing.Point(355, 555);
             this.add_Product_Name_Field.Name = "add_Product_Name_Field";
             this.add_Product_Name_Field.Size = new System.Drawing.Size(200, 39);
-            this.add_Product_Name_Field.TabIndex = 6;
+            this.add_Product_Name_Field.TabIndex = 1;
             // 
             // add_Product_ID_Field
             // 
@@ -123,21 +123,21 @@ namespace WGU_final_stuff
             this.add_Product_ID_Field.Name = "add_Product_ID_Field";
             this.add_Product_ID_Field.ReadOnly = true;
             this.add_Product_ID_Field.Size = new System.Drawing.Size(200, 39);
-            this.add_Product_ID_Field.TabIndex = 7;
+            this.add_Product_ID_Field.TabIndex = 0;
             // 
             // add_Product_Search_Field
             // 
             this.add_Product_Search_Field.Location = new System.Drawing.Point(1350, 135);
             this.add_Product_Search_Field.Name = "add_Product_Search_Field";
             this.add_Product_Search_Field.Size = new System.Drawing.Size(200, 39);
-            this.add_Product_Search_Field.TabIndex = 8;
+            this.add_Product_Search_Field.TabIndex = 7;
             // 
             // add_Product_Search_Button
             // 
             this.add_Product_Search_Button.Location = new System.Drawing.Point(1203, 135);
             this.add_Product_Search_Button.Name = "add_Product_Search_Button";
             this.add_Product_Search_Button.Size = new System.Drawing.Size(94, 46);
-            this.add_Product_Search_Button.TabIndex = 9;
+            this.add_Product_Search_Button.TabIndex = 6;
             this.add_Product_Search_Button.Text = "Search";
             this.add_Product_Search_Button.UseVisualStyleBackColor = true;
             // 
@@ -146,7 +146,7 @@ namespace WGU_final_stuff
             this.add_Product_Add_Part_Procuct_Button.Location = new System.Drawing.Point(1456, 555);
             this.add_Product_Add_Part_Procuct_Button.Name = "add_Product_Add_Part_Procuct_Button";
             this.add_Product_Add_Part_Procuct_Button.Size = new System.Drawing.Size(94, 46);
-            this.add_Product_Add_Part_Procuct_Button.TabIndex = 10;
+            this.add_Product_Add_Part_Procuct_Button.TabIndex = 9;
             this.add_Product_Add_Part_Procuct_Button.Text = "Add";
             this.add_Product_Add_Part_Procuct_Button.UseVisualStyleBackColor = true;
             this.add_Product_Add_Part_Procuct_Button.Click += new System.EventHandler(this.add_Product_Add_Part_Procuct_Button_Click);
@@ -290,8 +290,9 @@ namespace WGU_final_stuff
             this.Controls.Add(this.add_Product_Price_Field);
             this.Controls.Add(this.add_Product_Associated_Parts_View);
             this.Controls.Add(this.add_Product_Parts_OnProduct_View);
+            this.MinimumSize = new System.Drawing.Size(1768, 1227);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Product";
             ((System.ComponentModel.ISupportInitialize)(this.add_Product_Parts_OnProduct_View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.add_Product_Associated_Parts_View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.add_Product_Price_Field)).EndInit();

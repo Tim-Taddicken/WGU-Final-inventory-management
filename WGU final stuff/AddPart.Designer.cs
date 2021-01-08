@@ -275,6 +275,7 @@ namespace WGU_final_stuff
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.outsourced_radio);
             this.Controls.Add(this.inhouse_radio);
+            this.MinimumSize = new System.Drawing.Size(840, 834);
             this.Name = "AddPart";
             this.Text = "Part";
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();

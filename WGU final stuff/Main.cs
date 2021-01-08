@@ -105,7 +105,11 @@ namespace WGU_final_stuff
                 }
                                
             }
-            MessageBox.Show("Please Select Part first, then select modify");
+            else
+            {
+                MessageBox.Show("Please Select Part first, then select modify");
+            }
+            
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -165,6 +169,7 @@ namespace WGU_final_stuff
                 form2.SetViewParts();
                 form2.ModifyProduct(productsGridView1.SelectedRows[0].DataBoundItem as Product);
                 form2.ShowDialog();
+                return;
             }
             MessageBox.Show("Please select a product and try again or select add for new");
             

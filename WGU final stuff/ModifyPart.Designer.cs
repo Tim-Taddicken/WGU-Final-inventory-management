@@ -97,7 +97,7 @@ namespace WGU_final_stuff
             this.modify_Part_ID_Field.Name = "modify_Part_ID_Field";
             this.modify_Part_ID_Field.ReadOnly = true;
             this.modify_Part_ID_Field.Size = new System.Drawing.Size(200, 39);
-            this.modify_Part_ID_Field.TabIndex = 3;
+            this.modify_Part_ID_Field.TabIndex = 0;
             // 
             // modify_Part_Name_Field
             // 
@@ -105,7 +105,7 @@ namespace WGU_final_stuff
             this.modify_Part_Name_Field.Location = new System.Drawing.Point(274, 218);
             this.modify_Part_Name_Field.Name = "modify_Part_Name_Field";
             this.modify_Part_Name_Field.Size = new System.Drawing.Size(200, 39);
-            this.modify_Part_Name_Field.TabIndex = 4;
+            this.modify_Part_Name_Field.TabIndex = 1;
             // 
             // modify_Part_Inventory_Field
             // 
@@ -113,7 +113,8 @@ namespace WGU_final_stuff
             this.modify_Part_Inventory_Field.Location = new System.Drawing.Point(274, 289);
             this.modify_Part_Inventory_Field.Name = "modify_Part_Inventory_Field";
             this.modify_Part_Inventory_Field.Size = new System.Drawing.Size(240, 39);
-            this.modify_Part_Inventory_Field.TabIndex = 5;
+            this.modify_Part_Inventory_Field.TabIndex = 2;
+            this.modify_Part_Inventory_Field.ValueChanged += new System.EventHandler(this.modify_Part_Inventory_Field_ValueChanged);
             // 
             // modify_Part_Price_Field
             // 
@@ -121,7 +122,7 @@ namespace WGU_final_stuff
             this.modify_Part_Price_Field.Location = new System.Drawing.Point(274, 380);
             this.modify_Part_Price_Field.Name = "modify_Part_Price_Field";
             this.modify_Part_Price_Field.Size = new System.Drawing.Size(240, 39);
-            this.modify_Part_Price_Field.TabIndex = 6;
+            this.modify_Part_Price_Field.TabIndex = 4;
             // 
             // modify_Part_Max_Field
             // 
@@ -129,7 +130,7 @@ namespace WGU_final_stuff
             this.modify_Part_Max_Field.Location = new System.Drawing.Point(274, 452);
             this.modify_Part_Max_Field.Name = "modify_Part_Max_Field";
             this.modify_Part_Max_Field.Size = new System.Drawing.Size(119, 39);
-            this.modify_Part_Max_Field.TabIndex = 7;
+            this.modify_Part_Max_Field.TabIndex = 5;
             // 
             // modify_Part_Min_Field
             // 
@@ -137,7 +138,7 @@ namespace WGU_final_stuff
             this.modify_Part_Min_Field.Location = new System.Drawing.Point(532, 452);
             this.modify_Part_Min_Field.Name = "modify_Part_Min_Field";
             this.modify_Part_Min_Field.Size = new System.Drawing.Size(100, 39);
-            this.modify_Part_Min_Field.TabIndex = 8;
+            this.modify_Part_Min_Field.TabIndex = 6;
             // 
             // modify_Part_MachineID_Field
             // 
@@ -245,7 +246,7 @@ namespace WGU_final_stuff
             this.modify_Part_Companyname_Field.Location = new System.Drawing.Point(274, 526);
             this.modify_Part_Companyname_Field.Name = "modify_Part_Companyname_Field";
             this.modify_Part_Companyname_Field.Size = new System.Drawing.Size(240, 39);
-            this.modify_Part_Companyname_Field.TabIndex = 20;
+            this.modify_Part_Companyname_Field.TabIndex = 7;
             // 
             // Inventory_Validation_label
             // 
@@ -257,6 +258,7 @@ namespace WGU_final_stuff
             this.Inventory_Validation_label.TabIndex = 21;
             this.Inventory_Validation_label.Text = "Inventory must be between min and max";
             this.Inventory_Validation_label.Visible = false;
+            this.Inventory_Validation_label.Click += new System.EventHandler(this.Inventory_Validation_label_Click);
             // 
             // ModifyPart
             // 
@@ -285,6 +287,7 @@ namespace WGU_final_stuff
             this.Controls.Add(this.modify_Part_Outsourced_Radio);
             this.Controls.Add(this.modify_Part_Inhouse_Radio);
             this.Controls.Add(this.label1);
+            this.MinimumSize = new System.Drawing.Size(840, 834);
             this.Name = "ModifyPart";
             this.Text = "Company name";
             ((System.ComponentModel.ISupportInitialize)(this.modify_Part_Inventory_Field)).EndInit();

@@ -59,7 +59,7 @@
             this.addPartButton.Location = new System.Drawing.Point(397, 587);
             this.addPartButton.Name = "addPartButton";
             this.addPartButton.Size = new System.Drawing.Size(101, 46);
-            this.addPartButton.TabIndex = 0;
+            this.addPartButton.TabIndex = 3;
             this.addPartButton.Text = "Add";
             this.addPartButton.UseVisualStyleBackColor = true;
             this.addPartButton.Click += new System.EventHandler(this.button1_Click);
@@ -69,7 +69,7 @@
             this.modifyPartButton.Location = new System.Drawing.Point(519, 587);
             this.modifyPartButton.Name = "modifyPartButton";
             this.modifyPartButton.Size = new System.Drawing.Size(113, 46);
-            this.modifyPartButton.TabIndex = 1;
+            this.modifyPartButton.TabIndex = 4;
             this.modifyPartButton.Text = "Modify";
             this.modifyPartButton.UseVisualStyleBackColor = true;
             this.modifyPartButton.Click += new System.EventHandler(this.modifyPartButton_Click);
@@ -79,7 +79,7 @@
             this.deletePartButton.Location = new System.Drawing.Point(652, 587);
             this.deletePartButton.Name = "deletePartButton";
             this.deletePartButton.Size = new System.Drawing.Size(104, 46);
-            this.deletePartButton.TabIndex = 2;
+            this.deletePartButton.TabIndex = 5;
             this.deletePartButton.Text = "Delete";
             this.deletePartButton.UseVisualStyleBackColor = true;
             this.deletePartButton.Click += new System.EventHandler(this.deletePartButton_Click);
@@ -89,7 +89,7 @@
             this.addProductButton.Location = new System.Drawing.Point(1114, 587);
             this.addProductButton.Name = "addProductButton";
             this.addProductButton.Size = new System.Drawing.Size(150, 46);
-            this.addProductButton.TabIndex = 3;
+            this.addProductButton.TabIndex = 9;
             this.addProductButton.Text = "Add";
             this.addProductButton.UseVisualStyleBackColor = true;
             this.addProductButton.Click += new System.EventHandler(this.addProductButton_Click);
@@ -99,7 +99,7 @@
             this.modifyProductButton.Location = new System.Drawing.Point(1284, 587);
             this.modifyProductButton.Name = "modifyProductButton";
             this.modifyProductButton.Size = new System.Drawing.Size(150, 46);
-            this.modifyProductButton.TabIndex = 4;
+            this.modifyProductButton.TabIndex = 10;
             this.modifyProductButton.Text = "Modify";
             this.modifyProductButton.UseVisualStyleBackColor = true;
             this.modifyProductButton.Click += new System.EventHandler(this.modifyProductButton_Click);
@@ -109,7 +109,7 @@
             this.deleteProductButton.Location = new System.Drawing.Point(1454, 587);
             this.deleteProductButton.Name = "deleteProductButton";
             this.deleteProductButton.Size = new System.Drawing.Size(150, 46);
-            this.deleteProductButton.TabIndex = 5;
+            this.deleteProductButton.TabIndex = 11;
             this.deleteProductButton.Text = "Delete";
             this.deleteProductButton.UseVisualStyleBackColor = true;
             this.deleteProductButton.Click += new System.EventHandler(this.DeleteProductButton_Click);
@@ -119,7 +119,7 @@
             this.searchProductsButton.Location = new System.Drawing.Point(1303, 104);
             this.searchProductsButton.Name = "searchProductsButton";
             this.searchProductsButton.Size = new System.Drawing.Size(95, 39);
-            this.searchProductsButton.TabIndex = 8;
+            this.searchProductsButton.TabIndex = 6;
             this.searchProductsButton.Text = "Search";
             this.searchProductsButton.UseVisualStyleBackColor = true;
             // 
@@ -128,7 +128,7 @@
             this.searchPartsButton.Location = new System.Drawing.Point(436, 104);
             this.searchPartsButton.Name = "searchPartsButton";
             this.searchPartsButton.Size = new System.Drawing.Size(113, 39);
-            this.searchPartsButton.TabIndex = 9;
+            this.searchPartsButton.TabIndex = 0;
             this.searchPartsButton.Text = "Search";
             this.searchPartsButton.UseVisualStyleBackColor = true;
             // 
@@ -137,14 +137,14 @@
             this.partSearchBox.Location = new System.Drawing.Point(555, 104);
             this.partSearchBox.Name = "partSearchBox";
             this.partSearchBox.Size = new System.Drawing.Size(200, 39);
-            this.partSearchBox.TabIndex = 10;
+            this.partSearchBox.TabIndex = 1;
             // 
             // productSearchBox
             // 
             this.productSearchBox.Location = new System.Drawing.Point(1404, 104);
             this.productSearchBox.Name = "productSearchBox";
             this.productSearchBox.Size = new System.Drawing.Size(200, 39);
-            this.productSearchBox.TabIndex = 11;
+            this.productSearchBox.TabIndex = 7;
             // 
             // exit_button
             // 
@@ -193,7 +193,7 @@
             this.productsGridView1.RowHeadersWidth = 82;
             this.productsGridView1.RowTemplate.Height = 41;
             this.productsGridView1.Size = new System.Drawing.Size(714, 425);
-            this.productsGridView1.TabIndex = 18;
+            this.productsGridView1.TabIndex = 8;
             this.productsGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // label3
@@ -209,11 +209,12 @@
             // 
             this.partsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.partsGridView.Location = new System.Drawing.Point(44, 153);
+            this.partsGridView.MinimumSize = new System.Drawing.Size(714, 425);
             this.partsGridView.Name = "partsGridView";
             this.partsGridView.RowHeadersWidth = 82;
             this.partsGridView.RowTemplate.Height = 41;
             this.partsGridView.Size = new System.Drawing.Size(714, 425);
-            this.partsGridView.TabIndex = 20;
+            this.partsGridView.TabIndex = 2;
             // 
             // parts_bindings
             // 
