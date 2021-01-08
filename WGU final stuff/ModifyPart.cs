@@ -38,39 +38,24 @@ namespace WGU_final_stuff
             //end hide arrows
             if (part is InHouse)
             {
-               modify_Part_Inhouse_Radio.Checked = true;
+                var temp2 = part as InHouse;
+                modify_Part_MachineID_Field.Value = temp2.MachineID;
+                modify_Part_Inhouse_Radio.Checked = true;
             } else if (part is Outsourced) {
+                var temp = part as Outsourced;
                 modify_Part_Outsourced_Radio.Checked = true;
+                modify_Part_Companyname_Field.Text = temp.CompanyName;
             }
             modify_Part_Name_Field.Text = part.Name;
             modify_Part_ID_Field.Text = part.PartID.ToString();
-            if (part.InStock < part.Min || part.InStock > part.Max) {
-                Inventory_Validation_label.Show();
-                validated = false;
-
-            }
-            if (part.InStock >= part.Min && part.InStock <= part.Max)
-            {
-                Inventory_Validation_label.Hide();
-                validated = true;
-            }
+            Inventory_Validation_label.Show();
+            validated = false;          
+            Inventory_Validation_label.Hide();
+            validated = true;
             modify_Part_Inventory_Field.Value = part.InStock;
             modify_Part_Price_Field.Value = part.Price;
             modify_Part_Max_Field.Value = part.Max;
             modify_Part_Min_Field.Value = part.Min;
-
-            if (modify_Part_Outsourced_Radio.Checked)
-            {
-                var temp = part as Outsourced;
-                modify_Part_Companyname_Field.Text = temp.CompanyName;
-            }
-            else if (modify_Part_Inhouse_Radio.Checked)
-            {
-
-                var temp2 = part as InHouse;
-                modify_Part_MachineID_Field.Value = temp2.MachineID;
-            }
-
         }
 
         private void modify_Part_Save_Button_Click(object sender, EventArgs e)
@@ -84,8 +69,15 @@ namespace WGU_final_stuff
                     Max = Decimal.ToInt32(modify_Part_Max_Field.Value),
                     Min = Decimal.ToInt32(modify_Part_Min_Field.Value),
                     InStock = Decimal.ToInt32(modify_Part_Inventory_Field.Value),
-                    Price = modify_Part_Price_Field.Value
+                    Price = modify_Part_Price_Field.Value,
+                    CompanyName = modify_Part_Companyname_Field.Text
+
                 };
+                if (validated == true)
+                {
+                    Inventory.updatePart(part.PartID, part);
+                    this.Close();
+                }
             }
             else
             {
@@ -96,16 +88,16 @@ namespace WGU_final_stuff
                     Max = Decimal.ToInt32(modify_Part_Max_Field.Value),
                     Min = Decimal.ToInt32(modify_Part_Min_Field.Value),
                     InStock = Decimal.ToInt32(modify_Part_Inventory_Field.Value),
-                    Price = modify_Part_Price_Field.Value
+                    Price = modify_Part_Price_Field.Value,
+                    MachineID = Decimal.ToInt32(modify_Part_MachineID_Field.Value)
                 };
-
                 if (validated == true)
                 {
                     Inventory.updatePart(part.PartID, part);
                     this.Close();
                 }
-
             }
+            
         }
 
             private void modify_Part_Cancel_Button_Click(object sender, EventArgs e)
@@ -138,20 +130,56 @@ namespace WGU_final_stuff
 
         private void modify_Part_Inventory_Field_ValueChanged(object sender, EventArgs e)
         {
-            var senderarg = sender;
+            var inven = modify_Part_Inventory_Field.Value;
             var min = modify_Part_Min_Field.Value;
             var max = modify_Part_Max_Field.Value;
-            //if (part.InStock < part.Min || part.InStock > part.Max)
-            //{
-            //    Inventory_Validation_label.Show();
-            //    validated = false;
+            if (inven < min || inven > max)
+            {
+                Inventory_Validation_label.Show();
+                validated = false;
 
-            //}
-            //if (part.InStock >= part.Min && part.InStock <= part.Max)
-            //{
-            //    Inventory_Validation_label.Hide();
-            //    validated = true;
-            //}
+            }
+            if (inven >= min && inven <= max)
+            {
+               Inventory_Validation_label.Hide();
+                validated = true;
+            }
+        }
+
+        private void modify_Part_Max_Field_ValueChanged(object sender, EventArgs e)
+        {
+            var inven = modify_Part_Inventory_Field.Value;
+            var min = modify_Part_Min_Field.Value;
+            var max = modify_Part_Max_Field.Value;
+            if (inven < min || inven > max)
+            {
+                Inventory_Validation_label.Show();
+                validated = false;
+
+            }
+            if (inven >= min && inven <= max)
+            {
+                Inventory_Validation_label.Hide();
+                validated = true;
+            }
+        }
+
+        private void modify_Part_Min_Field_ValueChanged(object sender, EventArgs e)
+        {
+            var inven = modify_Part_Inventory_Field.Value;
+            var min = modify_Part_Min_Field.Value;
+            var max = modify_Part_Max_Field.Value;
+            if (inven < min || inven > max)
+            {
+                Inventory_Validation_label.Show();
+                validated = false;
+
+            }
+            if (inven >= min && inven <= max)
+            {
+                Inventory_Validation_label.Hide();
+                validated = true;
+            }
         }
     }
     } 

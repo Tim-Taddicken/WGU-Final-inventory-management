@@ -52,6 +52,7 @@ namespace WGU_final_stuff
             this.add_Product_Price = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.Inventory_Validation_label = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.add_Product_Parts_OnProduct_View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.add_Product_Associated_Parts_View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.add_Product_Price_Field)).BeginInit();
@@ -95,13 +96,15 @@ namespace WGU_final_stuff
             this.add_Product_Min_Field.Name = "add_Product_Min_Field";
             this.add_Product_Min_Field.Size = new System.Drawing.Size(120, 39);
             this.add_Product_Min_Field.TabIndex = 5;
+            this.add_Product_Min_Field.ValueChanged += new System.EventHandler(this.add_Product_Min_Field_ValueChanged);
             // 
             // add_Product_Max_Field
             // 
-            this.add_Product_Max_Field.Location = new System.Drawing.Point(271, 799);
+            this.add_Product_Max_Field.Location = new System.Drawing.Point(268, 794);
             this.add_Product_Max_Field.Name = "add_Product_Max_Field";
             this.add_Product_Max_Field.Size = new System.Drawing.Size(120, 39);
             this.add_Product_Max_Field.TabIndex = 4;
+            this.add_Product_Max_Field.ValueChanged += new System.EventHandler(this.add_Product_Max_Field_ValueChanged);
             // 
             // add_Product_Inventory_Field
             // 
@@ -109,6 +112,7 @@ namespace WGU_final_stuff
             this.add_Product_Inventory_Field.Name = "add_Product_Inventory_Field";
             this.add_Product_Inventory_Field.Size = new System.Drawing.Size(200, 39);
             this.add_Product_Inventory_Field.TabIndex = 2;
+            this.add_Product_Inventory_Field.ValueChanged += new System.EventHandler(this.add_Product_Inventory_Field_ValueChanged);
             // 
             // add_Product_Name_Field
             // 
@@ -262,11 +266,23 @@ namespace WGU_final_stuff
             this.label9.TabIndex = 22;
             this.label9.Text = "Min";
             // 
+            // Inventory_Validation_label
+            // 
+            this.Inventory_Validation_label.AutoSize = true;
+            this.Inventory_Validation_label.ForeColor = System.Drawing.Color.Crimson;
+            this.Inventory_Validation_label.Location = new System.Drawing.Point(219, 678);
+            this.Inventory_Validation_label.Name = "Inventory_Validation_label";
+            this.Inventory_Validation_label.Size = new System.Drawing.Size(454, 32);
+            this.Inventory_Validation_label.TabIndex = 26;
+            this.Inventory_Validation_label.Text = "Inventory must be between min and max";
+            this.Inventory_Validation_label.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1742, 1156);
+            this.Controls.Add(this.Inventory_Validation_label);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.add_Product_Price);
@@ -329,5 +345,6 @@ namespace WGU_final_stuff
         private System.Windows.Forms.Label add_Product_Price;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label Inventory_Validation_label;
     }
 }

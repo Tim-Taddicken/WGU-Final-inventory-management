@@ -122,7 +122,7 @@ namespace WGU_final_stuff
             this.modify_Part_Price_Field.Location = new System.Drawing.Point(274, 380);
             this.modify_Part_Price_Field.Name = "modify_Part_Price_Field";
             this.modify_Part_Price_Field.Size = new System.Drawing.Size(240, 39);
-            this.modify_Part_Price_Field.TabIndex = 4;
+            this.modify_Part_Price_Field.TabIndex = 3;
             // 
             // modify_Part_Max_Field
             // 
@@ -130,7 +130,8 @@ namespace WGU_final_stuff
             this.modify_Part_Max_Field.Location = new System.Drawing.Point(274, 452);
             this.modify_Part_Max_Field.Name = "modify_Part_Max_Field";
             this.modify_Part_Max_Field.Size = new System.Drawing.Size(119, 39);
-            this.modify_Part_Max_Field.TabIndex = 5;
+            this.modify_Part_Max_Field.TabIndex = 4;
+            this.modify_Part_Max_Field.ValueChanged += new System.EventHandler(this.modify_Part_Max_Field_ValueChanged);
             // 
             // modify_Part_Min_Field
             // 
@@ -138,12 +139,18 @@ namespace WGU_final_stuff
             this.modify_Part_Min_Field.Location = new System.Drawing.Point(532, 452);
             this.modify_Part_Min_Field.Name = "modify_Part_Min_Field";
             this.modify_Part_Min_Field.Size = new System.Drawing.Size(100, 39);
-            this.modify_Part_Min_Field.TabIndex = 6;
+            this.modify_Part_Min_Field.TabIndex = 5;
+            this.modify_Part_Min_Field.ValueChanged += new System.EventHandler(this.modify_Part_Min_Field_ValueChanged);
             // 
             // modify_Part_MachineID_Field
             // 
             this.modify_Part_MachineID_Field.BackColor = System.Drawing.Color.Tomato;
             this.modify_Part_MachineID_Field.Location = new System.Drawing.Point(274, 526);
+            this.modify_Part_MachineID_Field.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.modify_Part_MachineID_Field.Name = "modify_Part_MachineID_Field";
             this.modify_Part_MachineID_Field.Size = new System.Drawing.Size(240, 39);
             this.modify_Part_MachineID_Field.TabIndex = 9;
@@ -243,10 +250,10 @@ namespace WGU_final_stuff
             // modify_Part_Companyname_Field
             // 
             this.modify_Part_Companyname_Field.BackColor = System.Drawing.Color.Tomato;
-            this.modify_Part_Companyname_Field.Location = new System.Drawing.Point(274, 526);
+            this.modify_Part_Companyname_Field.Location = new System.Drawing.Point(274, 525);
             this.modify_Part_Companyname_Field.Name = "modify_Part_Companyname_Field";
             this.modify_Part_Companyname_Field.Size = new System.Drawing.Size(240, 39);
-            this.modify_Part_Companyname_Field.TabIndex = 7;
+            this.modify_Part_Companyname_Field.TabIndex = 6;
             // 
             // Inventory_Validation_label
             // 

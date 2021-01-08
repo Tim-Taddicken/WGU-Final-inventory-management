@@ -51,6 +51,7 @@ namespace WGU_final_stuff
             this.add_Part_Inventory_Field = new System.Windows.Forms.NumericUpDown();
             this.add_Part_Price_Field = new System.Windows.Forms.NumericUpDown();
             this.add_Part_Inhouse_Field = new System.Windows.Forms.NumericUpDown();
+            this.Inventory_Validation_label = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.add_Part_Min_Field)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.add_Part_Max_Field)).BeginInit();
@@ -152,7 +153,7 @@ namespace WGU_final_stuff
             // inventory_label
             // 
             this.inventory_label.AutoSize = true;
-            this.inventory_label.Location = new System.Drawing.Point(165, 295);
+            this.inventory_label.Location = new System.Drawing.Point(165, 285);
             this.inventory_label.Name = "inventory_label";
             this.inventory_label.Size = new System.Drawing.Size(115, 32);
             this.inventory_label.TabIndex = 13;
@@ -161,7 +162,7 @@ namespace WGU_final_stuff
             // price_cost_label
             // 
             this.price_cost_label.AutoSize = true;
-            this.price_cost_label.Location = new System.Drawing.Point(145, 376);
+            this.price_cost_label.Location = new System.Drawing.Point(145, 384);
             this.price_cost_label.Name = "price_cost_label";
             this.price_cost_label.Size = new System.Drawing.Size(135, 32);
             this.price_cost_label.TabIndex = 14;
@@ -219,6 +220,7 @@ namespace WGU_final_stuff
             this.add_Part_Min_Field.Name = "add_Part_Min_Field";
             this.add_Part_Min_Field.Size = new System.Drawing.Size(86, 39);
             this.add_Part_Min_Field.TabIndex = 20;
+            this.add_Part_Min_Field.ValueChanged += new System.EventHandler(this.add_Part_Min_Field_ValueChanged);
             // 
             // add_Part_Max_Field
             // 
@@ -226,18 +228,20 @@ namespace WGU_final_stuff
             this.add_Part_Max_Field.Name = "add_Part_Max_Field";
             this.add_Part_Max_Field.Size = new System.Drawing.Size(116, 39);
             this.add_Part_Max_Field.TabIndex = 21;
+            this.add_Part_Max_Field.ValueChanged += new System.EventHandler(this.add_Part_Max_Field_ValueChanged);
             // 
             // add_Part_Inventory_Field
             // 
-            this.add_Part_Inventory_Field.Location = new System.Drawing.Point(313, 288);
+            this.add_Part_Inventory_Field.Location = new System.Drawing.Point(313, 278);
             this.add_Part_Inventory_Field.Name = "add_Part_Inventory_Field";
             this.add_Part_Inventory_Field.Size = new System.Drawing.Size(198, 39);
             this.add_Part_Inventory_Field.TabIndex = 22;
+            this.add_Part_Inventory_Field.ValueChanged += new System.EventHandler(this.add_Part_Inventory_Field_ValueChanged);
             // 
             // add_Part_Price_Field
             // 
             this.add_Part_Price_Field.DecimalPlaces = 2;
-            this.add_Part_Price_Field.Location = new System.Drawing.Point(313, 369);
+            this.add_Part_Price_Field.Location = new System.Drawing.Point(313, 377);
             this.add_Part_Price_Field.Name = "add_Part_Price_Field";
             this.add_Part_Price_Field.Size = new System.Drawing.Size(198, 39);
             this.add_Part_Price_Field.TabIndex = 23;
@@ -245,15 +249,32 @@ namespace WGU_final_stuff
             // add_Part_Inhouse_Field
             // 
             this.add_Part_Inhouse_Field.Location = new System.Drawing.Point(312, 527);
+            this.add_Part_Inhouse_Field.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.add_Part_Inhouse_Field.Name = "add_Part_Inhouse_Field";
             this.add_Part_Inhouse_Field.Size = new System.Drawing.Size(199, 39);
             this.add_Part_Inhouse_Field.TabIndex = 24;
+            // 
+            // Inventory_Validation_label
+            // 
+            this.Inventory_Validation_label.AutoSize = true;
+            this.Inventory_Validation_label.ForeColor = System.Drawing.Color.Crimson;
+            this.Inventory_Validation_label.Location = new System.Drawing.Point(164, 333);
+            this.Inventory_Validation_label.Name = "Inventory_Validation_label";
+            this.Inventory_Validation_label.Size = new System.Drawing.Size(454, 32);
+            this.Inventory_Validation_label.TabIndex = 25;
+            this.Inventory_Validation_label.Text = "Inventory must be between min and max";
+            this.Inventory_Validation_label.Visible = false;
             // 
             // AddPart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(814, 763);
+            this.Controls.Add(this.Inventory_Validation_label);
             this.Controls.Add(this.add_Part_Inhouse_Field);
             this.Controls.Add(this.add_Part_Price_Field);
             this.Controls.Add(this.add_Part_Inventory_Field);
@@ -313,5 +334,6 @@ namespace WGU_final_stuff
         private System.Windows.Forms.NumericUpDown add_Part_Inventory_Field;
         private System.Windows.Forms.NumericUpDown add_Part_Price_Field;
         private System.Windows.Forms.NumericUpDown add_Part_Inhouse_Field;
+        private System.Windows.Forms.Label Inventory_Validation_label;
     }
 }

@@ -15,10 +15,11 @@ namespace WGU_final_stuff
     {
         
         public Inventory Inventory { get; set; }
-         
+        public BindingList<Product> filteredBindingList { get; set; }
         public Main()
         {
             Inventory = new Inventory { Products = GetProducts(),AllParts= new BindingList<Part>()};
+            filteredBindingList = new BindingList<Product>();
             InitializeComponent();
             
 
@@ -78,9 +79,10 @@ namespace WGU_final_stuff
         private void Form1_Load(object sender, EventArgs e)
         {
             parts_bindings.DataSource = Inventory.AllParts;
-            productsGridView1.DataSource = Inventory.Products;
+            //productsGridView1.DataSource = Inventory.Products;
+            filteredBindingList = Inventory.Products;
             partsGridView.DataSource = parts_bindings;
-            
+            productsGridView1.DataSource = filteredBindingList;
         }
 
         private void modifyPartButton_Click(object sender, EventArgs e)
@@ -124,6 +126,7 @@ namespace WGU_final_stuff
             //end collection
             var form2 = new Form1();
             form2.Inventory = Inventory;
+            form2.filteredBindingList = filteredBindingList;
             form2.SetViewParts();
             form2.ShowDialog();
         }
@@ -173,6 +176,19 @@ namespace WGU_final_stuff
             }
             MessageBox.Show("Please select a product and try again or select add for new");
             
+        }
+
+        public void productSearchBox_TextChanged(object sender, EventArgs e)
+        {
+
+            var filteredanswers = Inventory.Products.Where(x => x.Name.Contains(productSearchBox.Text)).ToList();
+            filteredBindingList = new BindingList<Product>{};
+            foreach (var Product in filteredanswers)
+            {
+                filteredBindingList.Add(Product);
+                
+            }
+            productsGridView1.DataSource = filteredBindingList;
         }
     }
 

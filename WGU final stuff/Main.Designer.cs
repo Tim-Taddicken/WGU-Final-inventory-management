@@ -145,6 +145,7 @@
             this.productSearchBox.Name = "productSearchBox";
             this.productSearchBox.Size = new System.Drawing.Size(200, 39);
             this.productSearchBox.TabIndex = 7;
+            this.productSearchBox.TextChanged += new System.EventHandler(this.productSearchBox_TextChanged);
             // 
             // exit_button
             // 
@@ -244,7 +245,7 @@
             this.Controls.Add(this.modifyPartButton);
             this.Controls.Add(this.addPartButton);
             this.Name = "Main";
-            this.Text = "Main";
+            this.Text = "num";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.productsGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.partsGridView)).EndInit();

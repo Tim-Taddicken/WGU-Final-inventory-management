@@ -13,7 +13,17 @@ namespace WGU_final_stuff
     public partial class Form1 : Form
     {
         public Inventory Inventory { get; set; }
+        public BindingList<Product> filteredBindingList { get; set; }
         public Product tempProduct { get; set; }
+        private bool validated;
+        public bool GetValidated()
+        {
+            return validated;
+        }
+        public void SetValidated(bool value)
+        {
+            validated = value;
+        }
         public Form1()
         {
             //Inventory = new Inventory { Products = GetProducts() };
@@ -134,6 +144,8 @@ namespace WGU_final_stuff
             //}
             
             Inventory.addProduct(tempProduct);
+            filteredBindingList = Inventory.Products;
+            
             Close();
 
         }
@@ -145,6 +157,60 @@ namespace WGU_final_stuff
             tempProduct.removeAssociatedPart(selectedRow.PartID);
             }
             MessageBox.Show("Please Select a part to be removed");
+        }
+
+        private void add_Product_Inventory_Field_ValueChanged(object sender, EventArgs e)
+        {
+            var inven = add_Product_Inventory_Field.Value;
+            var min = add_Product_Min_Field.Value;
+            var max = add_Product_Max_Field.Value;
+            if (inven < min || inven > max)
+            {
+                Inventory_Validation_label.Show();
+                validated = false;
+
+            }
+            if (inven >= min && inven <= max)
+            {
+                Inventory_Validation_label.Hide();
+                validated = true;
+            }
+        }
+
+        private void add_Product_Max_Field_ValueChanged(object sender, EventArgs e)
+        {
+            var inven = add_Product_Inventory_Field.Value;
+            var min = add_Product_Min_Field.Value;
+            var max = add_Product_Max_Field.Value;
+            if (inven < min || inven > max)
+            {
+                Inventory_Validation_label.Show();
+                validated = false;
+
+            }
+            if (inven >= min && inven <= max)
+            {
+                Inventory_Validation_label.Hide();
+                validated = true;
+            }
+        }
+
+        private void add_Product_Min_Field_ValueChanged(object sender, EventArgs e)
+        {
+            var inven = add_Product_Inventory_Field.Value;
+            var min = add_Product_Min_Field.Value;
+            var max = add_Product_Max_Field.Value;
+            if (inven < min || inven > max)
+            {
+                Inventory_Validation_label.Show();
+                validated = false;
+
+            }
+            if (inven >= min && inven <= max)
+            {
+                Inventory_Validation_label.Hide();
+                validated = true;
+            }
         }
     }
 }
