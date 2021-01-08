@@ -86,12 +86,24 @@ namespace WGU_final_stuff
         private void modifyPartButton_Click(object sender, EventArgs e)
         {
             if (partsGridView.SelectedRows.Count > 0) {
-                
-                
-                var selectedRow = partsGridView.SelectedRows[0].DataBoundItem as Part; 
-                var modify = new ModifyPart(selectedRow);         
-                modify.Inventory = Inventory;
-                modify.ShowDialog();                
+
+                var tempCheck = partsGridView.SelectedRows[0].DataBoundItem as Part;
+                var original = Inventory.lookUpPart(tempCheck.PartID);
+                if (original is InHouse) {
+                    var selectedRow = partsGridView.SelectedRows[0].DataBoundItem as InHouse;
+                    var modify = new ModifyPart(selectedRow);
+                    modify.Inventory = Inventory;               
+                    modify.ShowDialog();
+                    // fins way to check the moduify radio button
+                }
+                else
+                {
+                    var selectedRow = partsGridView.SelectedRows[0].DataBoundItem as Outsourced;
+                    var modify = new ModifyPart(selectedRow);
+                    modify.Inventory = Inventory;
+                    modify.ShowDialog();
+                }
+                               
             }
             MessageBox.Show("Please Select Part first, then select modify");
         }

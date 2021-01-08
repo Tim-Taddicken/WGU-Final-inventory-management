@@ -124,15 +124,14 @@ namespace WGU_final_stuff
             tempProduct.InStock = Decimal.ToInt32(add_Product_Inventory_Field.Value);
             tempProduct.InStock = Decimal.ToInt32(add_Product_Inventory_Field.Value);
             tempProduct.Price = add_Product_Price_Field.Value;
-            if (add_Product_ID_Field.Text == "")
-            {
-                var tempID = Inventory.Products.Count;
-                tempID++;
-                tempProduct.ProductID = tempID;
-            }else
-            {
-                tempProduct.ProductID = int.Parse(add_Product_ID_Field.Text);
-            }
+            //if (add_Product_ID_Field.Text == "")
+            //{
+            //    var tempID = Inventory.Products.Count;
+            //    ++tempID;
+            //    tempProduct.ProductID = tempID;
+            //} else {
+            //    tempProduct.ProductID = Convert.ToInt32(add_Product_ID_Field.Text);
+            //}
             
             Inventory.addProduct(tempProduct);
             Close();

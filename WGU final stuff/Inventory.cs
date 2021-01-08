@@ -13,7 +13,7 @@ namespace WGU_final_stuff
 
         public void addProduct(Product product) {
             var id = Products.OrderBy(x => x.ProductID).Last().ProductID;
-            product.ProductID = id++;
+            product.ProductID = ++id;
             Products.Add(product);
         }
         public bool removeProduct(int id) {

@@ -28,13 +28,19 @@ namespace WGU_final_stuff
 
         public ModifyPart(Part part)
         {
+            if(part is InHouse)
+            {
+                modify_Part_Inhouse_Radio.Checked = true;
+            } else if (part is Outsourced) {
+                modify_Part_Outsourced_Radio.Checked = true;
+            }
             InitializeComponent();
             modify_Part_Name_Field.Text = part.Name;
             modify_Part_ID_Field.Text = part.PartID.ToString();
             if (part.InStock < part.Min || part.InStock > part.Max) {
                 Inventory_Validation_label.Show();
                 validated = false;
-               
+
             }
             if (part.InStock >= part.Min && part.InStock <= part.Max)
             {
@@ -48,57 +54,73 @@ namespace WGU_final_stuff
 
             if (modify_Part_Outsourced_Radio.Checked)
             {
-                
                 var temp = part as Outsourced;
                 modify_Part_Companyname_Field.Text = temp.CompanyName;
             }
             else if (modify_Part_Inhouse_Radio.Checked)
             {
-               
-                var temp2 = part as InHouse; 
+
+                var temp2 = part as InHouse;
                 modify_Part_MachineID_Field.Value = temp2.MachineID;
             }
-            
+
         }
 
         private void modify_Part_Save_Button_Click(object sender, EventArgs e)
         {
-
-            
+            if (modify_Part_Outsourced_Radio.Checked)
+            {
                 var part = new Outsourced
                 {
                     Name = modify_Part_Name_Field.Text,
                     PartID = Convert.ToInt32(modify_Part_ID_Field.Text),
+                    Max = Decimal.ToInt32(modify_Part_Max_Field.Value),
+                    Min = Decimal.ToInt32(modify_Part_Min_Field.Value),
+                    InStock = Decimal.ToInt32(modify_Part_Inventory_Field.Value),
+                    Price = modify_Part_Price_Field.Value
                 };
-    
-            
-            if(validated == true) {
-                Inventory.updatePart(part.PartID, part);
+            }
+            else
+            {
+                var part = new InHouse
+                {
+                    Name = modify_Part_Name_Field.Text,
+                    PartID = Convert.ToInt32(modify_Part_ID_Field.Text),
+                    Max = Decimal.ToInt32(modify_Part_Max_Field.Value),
+                    Min = Decimal.ToInt32(modify_Part_Min_Field.Value),
+                    InStock = Decimal.ToInt32(modify_Part_Inventory_Field.Value),
+                    Price = modify_Part_Price_Field.Value
+                };
+
+                if (validated == true)
+                {
+                    Inventory.updatePart(part.PartID, part);
+                    this.Close();
+                }
+
+            }
+        }
+
+            private void modify_Part_Cancel_Button_Click(object sender, EventArgs e)
+            {
                 this.Close();
             }
-           
-        }
 
-        private void modify_Part_Cancel_Button_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+            private void modify_Part_Outsourced_Radio_CheckedChanged(object sender, EventArgs e)
+            {
+                modify_Part_MachineID_Field.Hide();
+                modify_Part_MachineID_Label.Hide();
+                modify_Part_Companyname_Field.Show();
+                modify_Part_CompanyName_Label.Show();
+            }
 
-        private void modify_Part_Outsourced_Radio_CheckedChanged(object sender, EventArgs e)
-        {
-            modify_Part_MachineID_Field.Hide();
-            modify_Part_MachineID_Label.Hide();
-            modify_Part_Companyname_Field.Show();
-            modify_Part_CompanyName_Label.Show();
-        }
+            private void modify_Part_Inhouse_Radio_CheckedChanged(object sender, EventArgs e)
+            {
+                modify_Part_MachineID_Field.Show();
+                modify_Part_MachineID_Label.Show();
+                modify_Part_Companyname_Field.Hide();
+                modify_Part_CompanyName_Label.Hide();
 
-        private void modify_Part_Inhouse_Radio_CheckedChanged(object sender, EventArgs e)
-        {
-            modify_Part_MachineID_Field.Show();
-            modify_Part_MachineID_Label.Show();
-            modify_Part_Companyname_Field.Hide();
-            modify_Part_CompanyName_Label.Hide();
-
+            }
         }
-    }
-}
+    } 

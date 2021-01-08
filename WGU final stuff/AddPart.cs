@@ -66,7 +66,7 @@ namespace WGU_final_stuff
                 Max = (int)add_Part_Max_Field.Value, InStock = (int)add_Part_Inventory_Field.Value, Price = add_Part_Price_Field.Value, 
                 CompanyName = add_Part_Outsourced_Field.Text });
             }
-            this.Close();
+            Close();
         }
     }
 }
