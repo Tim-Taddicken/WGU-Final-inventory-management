@@ -110,7 +110,7 @@ namespace WGU_final_stuff
                 validated = false;
 
             }
-            if (inven >= min && inven <= max)
+            if (inven >= min && inven <= max && min < max)
             {
                 Inventory_Validation_label.Hide();
                 validated = true;
@@ -128,7 +128,7 @@ namespace WGU_final_stuff
                 validated = false;
 
             }
-            if (inven >= min && inven <= max)
+            if (inven >= min && inven <= max && min < max)
             {
                 Inventory_Validation_label.Hide();
                 validated = true;
@@ -146,7 +146,7 @@ namespace WGU_final_stuff
                 validated = false;
 
             }
-            if (inven >= min && inven <= max)
+            if (inven >= min && inven <= max && min < max)
             {
                 Inventory_Validation_label.Hide();
                 validated = true;

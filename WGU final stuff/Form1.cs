@@ -145,11 +145,19 @@ namespace WGU_final_stuff
 
         private void add_Product_Delete_Button_Click(object sender, EventArgs e)
         {
-            if (add_Product_Associated_Parts_View.SelectedRows.Count > 0) { 
-            var selectedRow = add_Product_Associated_Parts_View.SelectedRows[0].DataBoundItem as Part;
-            tempProduct.removeAssociatedPart(selectedRow.PartID);
-            }
-            else { 
+            if (add_Product_Associated_Parts_View.SelectedRows.Count > 0)
+            {
+                
+               DialogResult dialogResult = MessageBox.Show("Are you sure you want to remove this product?",
+                    "",MessageBoxButtons.OKCancel) ;
+                if (dialogResult == DialogResult.OK) {
+
+                    var selectedRow = add_Product_Associated_Parts_View.SelectedRows[0].DataBoundItem as Part;
+                    tempProduct.removeAssociatedPart(selectedRow.PartID);
+                } else
+                {
+                }
+            } else { 
             MessageBox.Show("Please Select a part to be removed");
             }
         }
@@ -166,7 +174,7 @@ namespace WGU_final_stuff
                 validated = false;
 
             }
-            if (inven >= min && inven <= max)
+            if (inven >= min && inven <= max && min < max)
             {
                 Inventory_Validation_label.Hide();
                 validated = true;
@@ -184,7 +192,7 @@ namespace WGU_final_stuff
                 validated = false;
 
             }
-            if (inven >= min && inven <= max)
+            if (inven >= min && inven <= max && min < max)
             {
                 Inventory_Validation_label.Hide();
                 validated = true;
@@ -202,7 +210,7 @@ namespace WGU_final_stuff
                 validated = false;
 
             }
-            if (inven >= min && inven <= max)
+            if (inven >= min && inven <= max && min < max)
             {
                 Inventory_Validation_label.Hide();
                 validated = true;

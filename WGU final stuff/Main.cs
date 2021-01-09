@@ -13,17 +13,17 @@ namespace WGU_final_stuff
 {
     public partial class Main : Form
     {
-        
+
         public Inventory Inventory { get; set; }
         public BindingList<Product> filteredBindingList { get; set; }
         public BindingList<Part> partsBindingList { get; set; }
         public Main()
         {
-            Inventory = new Inventory { Products = GetProducts(),AllParts= new BindingList<Part>()};
+            Inventory = new Inventory { Products = GetProducts(), AllParts = new BindingList<Part>() };
             filteredBindingList = new BindingList<Product>();
             partsBindingList = new BindingList<Part>();
             InitializeComponent();
-            
+
 
         }
         public BindingList<Product> GetProducts()
@@ -58,7 +58,7 @@ namespace WGU_final_stuff
                 Min = 3,
                 Max = 4,
                 AssociatedParts = new BindingList<Part>()
-            }) ;
+            });
             list.Add(new Product()
             {
                 ProductID = 4,
@@ -89,18 +89,20 @@ namespace WGU_final_stuff
 
         private void modifyPartButton_Click(object sender, EventArgs e)
         {
-            if (partsGridView.SelectedRows.Count > 0) {
+            if (partsGridView.SelectedRows.Count > 0)
+            {
 
                 var tempCheck = partsGridView.SelectedRows[0].DataBoundItem as Part;
                 var original = Inventory.lookUpPart(tempCheck.PartID);
-                if (original is InHouse) {
+                if (original is InHouse)
+                {
                     var selectedRow = partsGridView.SelectedRows[0].DataBoundItem as InHouse;
                     var modify = new ModifyPart(selectedRow);
                     modify.Inventory = Inventory;
-                    partsBindingList = Inventory.AllParts;                    
+                    partsBindingList = Inventory.AllParts;
                     partsGridView.Update();
-                    partsGridView.Refresh();                    
-                    modify.ShowDialog();                    
+                    partsGridView.Refresh();
+                    modify.ShowDialog();
                 }
                 else
                 {
@@ -112,13 +114,13 @@ namespace WGU_final_stuff
                     partsGridView.Refresh();
                     modify.ShowDialog();
                 }
-                               
+
             }
             else
             {
                 MessageBox.Show("Please Select Part first, then select modify");
             }
-            
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -128,7 +130,7 @@ namespace WGU_final_stuff
 
         private void addProductButton_Click(object sender, EventArgs e)
         {
-            
+
             var form2 = new Form1();
             form2.Inventory = Inventory;
             form2.filteredBindingList = filteredBindingList;
@@ -151,30 +153,53 @@ namespace WGU_final_stuff
 
         private void DeleteProductButton_Click(object sender, EventArgs e)
         {
-            var selectedRow = productsGridView1.SelectedRows[0].DataBoundItem as Product;
-            try
+            if (productsGridView1.SelectedRows.Count > 0)
             {
-                Inventory.removeProduct(selectedRow.ProductID);
-            }
-            catch (Exception f)
-            {
+                DialogResult dialogResult = MessageBox.Show("Are you sure you want to remove this product?",
+                   "", MessageBoxButtons.OKCancel);
+                if (dialogResult == DialogResult.OK)
+                {
+                    var selectedRow = productsGridView1.SelectedRows[0].DataBoundItem as Product;
 
-                throw new Exception("this is what i got ", f);
+                    Inventory.removeProduct(selectedRow.ProductID);
+                }
+                else
+                {
+                }
             }
-            
+            else
+            {
+                MessageBox.Show("no product selected for deletion");
+            }
         }
 
         private void deletePartButton_Click(object sender, EventArgs e)
         {
-            var selectedRow = partsGridView.SelectedRows[0].DataBoundItem as Part;
-            Inventory.deletePart(selectedRow);
+            if (partsGridView.SelectedRows.Count > 0)
+            {
+                DialogResult dialogResult = MessageBox.Show("Are you sure you want to remove this part?",
+                   "", MessageBoxButtons.OKCancel);
+                if (dialogResult == DialogResult.OK)
+                {
+                    var selectedRow = partsGridView.SelectedRows[0].DataBoundItem as Part;
+                    Inventory.deletePart(selectedRow);
+                }
+                else
+                {
+                }
+                
+            }
+            else
+            {
+                MessageBox.Show("Please select a part and try again or select add for new");
+            }
         }
 
         private void modifyProductButton_Click(object sender, EventArgs e)
         {
             if (productsGridView1.SelectedRows.Count > 0)
             {
-                
+
                 var form2 = new Form1();
                 form2.Inventory = Inventory;
                 form2.SetViewParts();
@@ -183,18 +208,18 @@ namespace WGU_final_stuff
                 return;
             }
             MessageBox.Show("Please select a product and try again or select add for new");
-            
+
         }
 
         public void productSearchBox_TextChanged(object sender, EventArgs e)
         {
 
             var filteredanswers = Inventory.Products.Where(x => x.Name.Contains(productSearchBox.Text)).ToList();
-            filteredBindingList = new BindingList<Product>{};
+            filteredBindingList = new BindingList<Product> { };
             foreach (var Product in filteredanswers)
             {
                 filteredBindingList.Add(Product);
-                
+
             }
             productsGridView1.DataSource = filteredBindingList;
         }
