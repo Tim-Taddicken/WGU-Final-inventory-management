@@ -134,18 +134,11 @@ namespace WGU_final_stuff
             tempProduct.InStock = Decimal.ToInt32(add_Product_Inventory_Field.Value);
             tempProduct.InStock = Decimal.ToInt32(add_Product_Inventory_Field.Value);
             tempProduct.Price = add_Product_Price_Field.Value;
-            //if (add_Product_ID_Field.Text == "")
-            //{
-            //    var tempID = Inventory.Products.Count;
-            //    ++tempID;
-            //    tempProduct.ProductID = tempID;
-            //} else {
-            //    tempProduct.ProductID = Convert.ToInt32(add_Product_ID_Field.Text);
-            //}
+            
             
             Inventory.addProduct(tempProduct);
             filteredBindingList = Inventory.Products;
-            
+           
             Close();
 
         }
@@ -156,8 +149,11 @@ namespace WGU_final_stuff
             var selectedRow = add_Product_Associated_Parts_View.SelectedRows[0].DataBoundItem as Part;
             tempProduct.removeAssociatedPart(selectedRow.PartID);
             }
+            else { 
             MessageBox.Show("Please Select a part to be removed");
+            }
         }
+
 
         private void add_Product_Inventory_Field_ValueChanged(object sender, EventArgs e)
         {

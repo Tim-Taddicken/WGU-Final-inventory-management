@@ -16,10 +16,12 @@ namespace WGU_final_stuff
         
         public Inventory Inventory { get; set; }
         public BindingList<Product> filteredBindingList { get; set; }
+        public BindingList<Part> partsBindingList { get; set; }
         public Main()
         {
             Inventory = new Inventory { Products = GetProducts(),AllParts= new BindingList<Part>()};
             filteredBindingList = new BindingList<Product>();
+            partsBindingList = new BindingList<Part>();
             InitializeComponent();
             
 
@@ -79,9 +81,9 @@ namespace WGU_final_stuff
         private void Form1_Load(object sender, EventArgs e)
         {
             parts_bindings.DataSource = Inventory.AllParts;
-            //productsGridView1.DataSource = Inventory.Products;
+            partsBindingList = Inventory.AllParts;
             filteredBindingList = Inventory.Products;
-            partsGridView.DataSource = parts_bindings;
+            partsGridView.DataSource = partsBindingList;
             productsGridView1.DataSource = filteredBindingList;
         }
 
@@ -94,15 +96,20 @@ namespace WGU_final_stuff
                 if (original is InHouse) {
                     var selectedRow = partsGridView.SelectedRows[0].DataBoundItem as InHouse;
                     var modify = new ModifyPart(selectedRow);
-                    modify.Inventory = Inventory;               
-                    modify.ShowDialog();
-                    // fins way to check the moduify radio button
+                    modify.Inventory = Inventory;
+                    partsBindingList = Inventory.AllParts;                    
+                    partsGridView.Update();
+                    partsGridView.Refresh();                    
+                    modify.ShowDialog();                    
                 }
                 else
                 {
                     var selectedRow = partsGridView.SelectedRows[0].DataBoundItem as Outsourced;
                     var modify = new ModifyPart(selectedRow);
                     modify.Inventory = Inventory;
+                    partsBindingList = Inventory.AllParts;
+                    partsGridView.Update();
+                    partsGridView.Refresh();
                     modify.ShowDialog();
                 }
                                
@@ -121,14 +128,15 @@ namespace WGU_final_stuff
 
         private void addProductButton_Click(object sender, EventArgs e)
         {
-            //to collect and send product
-           
-            //end collection
+            
             var form2 = new Form1();
             form2.Inventory = Inventory;
             form2.filteredBindingList = filteredBindingList;
             form2.SetViewParts();
             form2.ShowDialog();
+            filteredBindingList = Inventory.Products;
+            productsGridView1.Update();
+            productsGridView1.Refresh();
         }
 
         private void button9_Click(object sender, EventArgs e)
@@ -189,6 +197,18 @@ namespace WGU_final_stuff
                 
             }
             productsGridView1.DataSource = filteredBindingList;
+        }
+
+        private void partSearchBox_TextChanged(object sender, EventArgs e)
+        {
+            var filteredanswers = Inventory.AllParts.Where(x => x.Name.Contains(partSearchBox.Text)).ToList();
+            partsBindingList = new BindingList<Part> { };
+            foreach (var part in filteredanswers)
+            {
+                partsBindingList.Add(part);
+
+            }
+            partsGridView.DataSource = partsBindingList;
         }
     }
 

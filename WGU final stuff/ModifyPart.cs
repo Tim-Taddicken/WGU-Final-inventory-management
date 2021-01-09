@@ -13,6 +13,7 @@ namespace WGU_final_stuff
     public partial class ModifyPart : Form
     {
         public Inventory Inventory { get; set; }
+        public BindingList<Part> partsBindingList { get; set; }
 
         private bool validated;
 
@@ -29,6 +30,12 @@ namespace WGU_final_stuff
         public ModifyPart(Part part)
         {
             InitializeComponent();
+            
+            // set initital value of validated to force validation before saving
+            validated = false;
+            // end validated
+
+
             //Hide arrows
             modify_Part_Min_Field.Controls[0].Visible = false;
             modify_Part_Max_Field.Controls[0].Visible = false;
@@ -36,6 +43,26 @@ namespace WGU_final_stuff
             modify_Part_Inventory_Field.Controls[0].Visible = false;
             modify_Part_MachineID_Field.Controls[0].Visible = false;
             //end hide arrows
+
+            // begin inventory validation because we are modifing and there is an existing product
+            var inven = modify_Part_Inventory_Field.Value;
+            var min = modify_Part_Min_Field.Value;
+            var max = modify_Part_Max_Field.Value;
+            
+            if (inven < min || inven > max)
+            {
+                Inventory_Validation_label.Show();
+                validated = false;
+
+            }
+            if (inven >= min && inven <= max)
+            {
+                Inventory_Validation_label.Hide();
+                validated = true;
+            }
+            //end validation
+            //set part fields
+            
             if (part is InHouse)
             {
                 var temp2 = part as InHouse;
@@ -48,10 +75,6 @@ namespace WGU_final_stuff
             }
             modify_Part_Name_Field.Text = part.Name;
             modify_Part_ID_Field.Text = part.PartID.ToString();
-            Inventory_Validation_label.Show();
-            validated = false;          
-            Inventory_Validation_label.Hide();
-            validated = true;
             modify_Part_Inventory_Field.Value = part.InStock;
             modify_Part_Price_Field.Value = part.Price;
             modify_Part_Max_Field.Value = part.Max;
@@ -73,11 +96,29 @@ namespace WGU_final_stuff
                     CompanyName = modify_Part_Companyname_Field.Text
 
                 };
+               //validation begin
+                var inven = modify_Part_Inventory_Field.Value;
+                var min = modify_Part_Min_Field.Value;
+                var max = modify_Part_Max_Field.Value;
+                
+                if (inven < min || inven > max)
+                {
+                    Inventory_Validation_label.Show();
+                    validated = false;
+
+                }
+                if (inven >= min && inven <= max)
+                {
+                    Inventory_Validation_label.Hide();
+                    validated = true;
+                }
                 if (validated == true)
                 {
                     Inventory.updatePart(part.PartID, part);
+                    partsBindingList = Inventory.AllParts;
                     this.Close();
                 }
+                //end validation
             }
             else
             {
@@ -91,11 +132,29 @@ namespace WGU_final_stuff
                     Price = modify_Part_Price_Field.Value,
                     MachineID = Decimal.ToInt32(modify_Part_MachineID_Field.Value)
                 };
+                //validation begin
+                var inven = modify_Part_Inventory_Field.Value;
+                var min = modify_Part_Min_Field.Value;
+                var max = modify_Part_Max_Field.Value;
+
+                if (inven < min || inven > max)
+                {
+                    Inventory_Validation_label.Show();
+                    validated = false;
+
+                }
+                if (inven >= min && inven <= max)
+                {
+                    Inventory_Validation_label.Hide();
+                    validated = true;
+                }
                 if (validated == true)
                 {
                     Inventory.updatePart(part.PartID, part);
+                    partsBindingList = Inventory.AllParts;
                     this.Close();
                 }
+                //end validation
             }
             
         }

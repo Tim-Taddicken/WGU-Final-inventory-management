@@ -56,9 +56,9 @@
             // 
             // addPartButton
             // 
-            this.addPartButton.Location = new System.Drawing.Point(397, 587);
+            this.addPartButton.Location = new System.Drawing.Point(385, 600);
             this.addPartButton.Name = "addPartButton";
-            this.addPartButton.Size = new System.Drawing.Size(101, 46);
+            this.addPartButton.Size = new System.Drawing.Size(100, 46);
             this.addPartButton.TabIndex = 3;
             this.addPartButton.Text = "Add";
             this.addPartButton.UseVisualStyleBackColor = true;
@@ -66,9 +66,9 @@
             // 
             // modifyPartButton
             // 
-            this.modifyPartButton.Location = new System.Drawing.Point(519, 587);
+            this.modifyPartButton.Location = new System.Drawing.Point(513, 600);
             this.modifyPartButton.Name = "modifyPartButton";
-            this.modifyPartButton.Size = new System.Drawing.Size(113, 46);
+            this.modifyPartButton.Size = new System.Drawing.Size(100, 46);
             this.modifyPartButton.TabIndex = 4;
             this.modifyPartButton.Text = "Modify";
             this.modifyPartButton.UseVisualStyleBackColor = true;
@@ -76,9 +76,9 @@
             // 
             // deletePartButton
             // 
-            this.deletePartButton.Location = new System.Drawing.Point(652, 587);
+            this.deletePartButton.Location = new System.Drawing.Point(658, 600);
             this.deletePartButton.Name = "deletePartButton";
-            this.deletePartButton.Size = new System.Drawing.Size(104, 46);
+            this.deletePartButton.Size = new System.Drawing.Size(100, 46);
             this.deletePartButton.TabIndex = 5;
             this.deletePartButton.Text = "Delete";
             this.deletePartButton.UseVisualStyleBackColor = true;
@@ -86,9 +86,9 @@
             // 
             // addProductButton
             // 
-            this.addProductButton.Location = new System.Drawing.Point(1114, 587);
+            this.addProductButton.Location = new System.Drawing.Point(1230, 600);
             this.addProductButton.Name = "addProductButton";
-            this.addProductButton.Size = new System.Drawing.Size(150, 46);
+            this.addProductButton.Size = new System.Drawing.Size(100, 46);
             this.addProductButton.TabIndex = 9;
             this.addProductButton.Text = "Add";
             this.addProductButton.UseVisualStyleBackColor = true;
@@ -96,9 +96,9 @@
             // 
             // modifyProductButton
             // 
-            this.modifyProductButton.Location = new System.Drawing.Point(1284, 587);
+            this.modifyProductButton.Location = new System.Drawing.Point(1376, 600);
             this.modifyProductButton.Name = "modifyProductButton";
-            this.modifyProductButton.Size = new System.Drawing.Size(150, 46);
+            this.modifyProductButton.Size = new System.Drawing.Size(100, 46);
             this.modifyProductButton.TabIndex = 10;
             this.modifyProductButton.Text = "Modify";
             this.modifyProductButton.UseVisualStyleBackColor = true;
@@ -106,9 +106,9 @@
             // 
             // deleteProductButton
             // 
-            this.deleteProductButton.Location = new System.Drawing.Point(1454, 587);
+            this.deleteProductButton.Location = new System.Drawing.Point(1504, 600);
             this.deleteProductButton.Name = "deleteProductButton";
-            this.deleteProductButton.Size = new System.Drawing.Size(150, 46);
+            this.deleteProductButton.Size = new System.Drawing.Size(100, 46);
             this.deleteProductButton.TabIndex = 11;
             this.deleteProductButton.Text = "Delete";
             this.deleteProductButton.UseVisualStyleBackColor = true;
@@ -116,18 +116,18 @@
             // 
             // searchProductsButton
             // 
-            this.searchProductsButton.Location = new System.Drawing.Point(1303, 104);
+            this.searchProductsButton.Location = new System.Drawing.Point(1278, 97);
             this.searchProductsButton.Name = "searchProductsButton";
-            this.searchProductsButton.Size = new System.Drawing.Size(95, 39);
+            this.searchProductsButton.Size = new System.Drawing.Size(100, 46);
             this.searchProductsButton.TabIndex = 6;
             this.searchProductsButton.Text = "Search";
             this.searchProductsButton.UseVisualStyleBackColor = true;
             // 
             // searchPartsButton
             // 
-            this.searchPartsButton.Location = new System.Drawing.Point(436, 104);
+            this.searchPartsButton.Location = new System.Drawing.Point(426, 97);
             this.searchPartsButton.Name = "searchPartsButton";
-            this.searchPartsButton.Size = new System.Drawing.Size(113, 39);
+            this.searchPartsButton.Size = new System.Drawing.Size(100, 46);
             this.searchPartsButton.TabIndex = 0;
             this.searchPartsButton.Text = "Search";
             this.searchPartsButton.UseVisualStyleBackColor = true;
@@ -138,6 +138,7 @@
             this.partSearchBox.Name = "partSearchBox";
             this.partSearchBox.Size = new System.Drawing.Size(200, 39);
             this.partSearchBox.TabIndex = 1;
+            this.partSearchBox.TextChanged += new System.EventHandler(this.partSearchBox_TextChanged);
             // 
             // productSearchBox
             // 
@@ -149,9 +150,9 @@
             // 
             // exit_button
             // 
-            this.exit_button.Location = new System.Drawing.Point(1454, 716);
+            this.exit_button.Location = new System.Drawing.Point(1504, 711);
             this.exit_button.Name = "exit_button";
-            this.exit_button.Size = new System.Drawing.Size(150, 46);
+            this.exit_button.Size = new System.Drawing.Size(100, 46);
             this.exit_button.TabIndex = 12;
             this.exit_button.Text = "Exit";
             this.exit_button.UseVisualStyleBackColor = true;
@@ -245,7 +246,7 @@
             this.Controls.Add(this.modifyPartButton);
             this.Controls.Add(this.addPartButton);
             this.Name = "Main";
-            this.Text = "num";
+            this.Text = "Main";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.productsGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.partsGridView)).EndInit();
