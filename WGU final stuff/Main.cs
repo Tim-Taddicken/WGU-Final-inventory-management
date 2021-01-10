@@ -19,58 +19,58 @@ namespace WGU_final_stuff
         public BindingList<Part> partsBindingList { get; set; }
         public Main()
         {
-            Inventory = new Inventory { Products = GetProducts(), AllParts = new BindingList<Part>() };
+            Inventory = new Inventory { Products = new BindingList<Product>(), AllParts = new BindingList<Part>() };
             filteredBindingList = new BindingList<Product>();
             partsBindingList = new BindingList<Part>();
             InitializeComponent();
 
 
         }
-        public BindingList<Product> GetProducts()
-        {
-            BindingList<Product> list = new BindingList<Product>();
-            list.Add(new Product()
-            {
-                ProductID = 1,
-                Name = "canogoo",
-                Price = 1,
-                InStock = 5,
-                Min = 3,
-                Max = 4,
-                AssociatedParts = new BindingList<Part>()
-            });
-            list.Add(new Product()
-            {
-                ProductID = 2,
-                Name = "sample",
-                Price = 2,
-                InStock = 5,
-                Min = 3,
-                Max = 4,
-                AssociatedParts = new BindingList<Part>()
-            });
-            list.Add(new Product()
-            {
-                ProductID = 3,
-                Name = "timesucker",
-                Price = 5,
-                InStock = 5,
-                Min = 3,
-                Max = 4,
-                AssociatedParts = new BindingList<Part>()
-            });
-            list.Add(new Product()
-            {
-                ProductID = 4,
-                Name = "uselessgoo",
-                Price = 3,
-                InStock = 5,
-                Min = 3,
-                Max = 4,
-                AssociatedParts = new BindingList<Part>()
-            });
-            return list;
-        }
+        //public BindingList<Product> GetProducts()
+        //{
+        //    BindingList<Product> list = new BindingList<Product>();
+        //    list.Add(new Product()
+        //    {
+        //        ProductID = 1,
+        //        Name = "can",
+        //        Price = 1,
+        //        InStock = 5,
+        //        Min = 3,
+        //        Max = 4,
+        //        AssociatedParts = new BindingList<Part>()
+        //    });
+        //    list.Add(new Product()
+        //    {
+        //        ProductID = 2,
+        //        Name = "sample",
+        //        Price = 2,
+        //        InStock = 5,
+        //        Min = 3,
+        //        Max = 4,
+        //        AssociatedParts = new BindingList<Part>()
+        //    });
+        //    list.Add(new Product()
+        //    {
+        //        ProductID = 3,
+        //        Name = "timesucker",
+        //        Price = 5,
+        //        InStock = 5,
+        //        Min = 3,
+        //        Max = 4,
+        //        AssociatedParts = new BindingList<Part>()
+        //    });
+        //    list.Add(new Product()
+        //    {
+        //        ProductID = 4,
+        //        Name = "uselessgoo",
+        //        Price = 3,
+        //        InStock = 5,
+        //        Min = 3,
+        //        Max = 4,
+        //        AssociatedParts = new BindingList<Part>()
+        //    });
+        //    return list;
+        //}
         private void button1_Click(object sender, EventArgs e)
         {
             var form2 = new AddPart();

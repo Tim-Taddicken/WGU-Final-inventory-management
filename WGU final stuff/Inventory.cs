@@ -12,9 +12,16 @@ namespace WGU_final_stuff
         public BindingList<Part> AllParts { get; set; }
 
         public void addProduct(Product product) {
-            var id = Products.OrderBy(x => x.ProductID).Last().ProductID;
-            product.ProductID = ++id;
-            Products.Add(product);
+            if (Products.Count() > 0)  {
+                int tempid = Products.OrderBy(x => x.ProductID).Last().ProductID;
+                product.ProductID = ++tempid;
+                Products.Add(product);
+            }
+            else
+            {
+               product.ProductID = 1;
+                Products.Add(product);
+            }            
         }
         public bool removeProduct(int id) {
             var productToDelete = Products.SingleOrDefault(x => x.ProductID == id);
