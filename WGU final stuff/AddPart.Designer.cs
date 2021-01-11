@@ -117,7 +117,7 @@ namespace WGU_final_stuff
             this.add_Part_Save_Button.Location = new System.Drawing.Point(311, 680);
             this.add_Part_Save_Button.Name = "add_Part_Save_Button";
             this.add_Part_Save_Button.Size = new System.Drawing.Size(150, 46);
-            this.add_Part_Save_Button.TabIndex = 9;
+            this.add_Part_Save_Button.TabIndex = 10;
             this.add_Part_Save_Button.Text = "Save";
             this.add_Part_Save_Button.UseVisualStyleBackColor = true;
             this.add_Part_Save_Button.Click += new System.EventHandler(this.save_button_Click);
@@ -127,7 +127,7 @@ namespace WGU_final_stuff
             this.cancel_button.Location = new System.Drawing.Point(532, 680);
             this.cancel_button.Name = "cancel_button";
             this.cancel_button.Size = new System.Drawing.Size(150, 46);
-            this.cancel_button.TabIndex = 10;
+            this.cancel_button.TabIndex = 11;
             this.cancel_button.Text = "Cancel";
             this.cancel_button.UseVisualStyleBackColor = true;
             this.cancel_button.Click += new System.EventHandler(this.cancel_button_Click);
@@ -219,7 +219,7 @@ namespace WGU_final_stuff
             this.add_Part_Min_Field.Location = new System.Drawing.Point(532, 446);
             this.add_Part_Min_Field.Name = "add_Part_Min_Field";
             this.add_Part_Min_Field.Size = new System.Drawing.Size(86, 39);
-            this.add_Part_Min_Field.TabIndex = 20;
+            this.add_Part_Min_Field.TabIndex = 8;
             this.add_Part_Min_Field.ValueChanged += new System.EventHandler(this.add_Part_Min_Field_ValueChanged);
             // 
             // add_Part_Max_Field
@@ -227,7 +227,7 @@ namespace WGU_final_stuff
             this.add_Part_Max_Field.Location = new System.Drawing.Point(313, 444);
             this.add_Part_Max_Field.Name = "add_Part_Max_Field";
             this.add_Part_Max_Field.Size = new System.Drawing.Size(116, 39);
-            this.add_Part_Max_Field.TabIndex = 21;
+            this.add_Part_Max_Field.TabIndex = 7;
             this.add_Part_Max_Field.ValueChanged += new System.EventHandler(this.add_Part_Max_Field_ValueChanged);
             // 
             // add_Part_Inventory_Field
@@ -235,7 +235,7 @@ namespace WGU_final_stuff
             this.add_Part_Inventory_Field.Location = new System.Drawing.Point(313, 278);
             this.add_Part_Inventory_Field.Name = "add_Part_Inventory_Field";
             this.add_Part_Inventory_Field.Size = new System.Drawing.Size(198, 39);
-            this.add_Part_Inventory_Field.TabIndex = 22;
+            this.add_Part_Inventory_Field.TabIndex = 5;
             this.add_Part_Inventory_Field.ValueChanged += new System.EventHandler(this.add_Part_Inventory_Field_ValueChanged);
             // 
             // add_Part_Price_Field
@@ -244,7 +244,7 @@ namespace WGU_final_stuff
             this.add_Part_Price_Field.Location = new System.Drawing.Point(313, 377);
             this.add_Part_Price_Field.Name = "add_Part_Price_Field";
             this.add_Part_Price_Field.Size = new System.Drawing.Size(198, 39);
-            this.add_Part_Price_Field.TabIndex = 23;
+            this.add_Part_Price_Field.TabIndex = 6;
             // 
             // add_Part_Inhouse_Field
             // 
@@ -256,7 +256,7 @@ namespace WGU_final_stuff
             0});
             this.add_Part_Inhouse_Field.Name = "add_Part_Inhouse_Field";
             this.add_Part_Inhouse_Field.Size = new System.Drawing.Size(199, 39);
-            this.add_Part_Inhouse_Field.TabIndex = 24;
+            this.add_Part_Inhouse_Field.TabIndex = 9;
             // 
             // Inventory_Validation_label
             // 

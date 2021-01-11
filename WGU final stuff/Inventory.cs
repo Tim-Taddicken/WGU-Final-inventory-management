@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace WGU_final_stuff
 {
@@ -12,35 +13,42 @@ namespace WGU_final_stuff
         public BindingList<Part> AllParts { get; set; }
 
         public void addProduct(Product product) {
-            if (Products.Count() > 0)  {
+            if (product.ProductID == 0 && Products.Count() > 0)
+            {
                 int tempid = Products.OrderBy(x => x.ProductID).Last().ProductID;
                 product.ProductID = ++tempid;
                 Products.Add(product);
-            }
-            else
-            {
-               product.ProductID = 1;
+            } else if (Products.Count() > 0 || product.ProductID != 0) {
                 Products.Add(product);
-            }            
+            } else if (Products.Count() == 0)
+            {
+                product.ProductID = 1;
+                Products.Add(product);
+            }
+            
         }
         public bool removeProduct(int id) {
             var productToDelete = Products.SingleOrDefault(x => x.ProductID == id);
-            if (productToDelete != null)
+            if (productToDelete != null && productToDelete.AssociatedParts.Count() == 0)
             {
-                Products.Remove(productToDelete);
-                return true;
-            }
-            else
-            {
+                    Products.Remove(productToDelete);
+                    return true;
+            } else
+              {
+                 MessageBox.Show(" Please remove associated parts from the selected product prior to deletion." +
+                     " These parts can be found and removed on the Modify page");
                 return false;
-            }
+                    
+              }
+            
         }
         public Product lookupProduct(int id) {
             return Products.Single(x => x.ProductID == id);
         }
         public void updateProduct(int id, Product product) {
             Products.Remove(Products.FirstOrDefault(x => x.ProductID == id));
-            Products.Add(product);
+            
+            addProduct(product);
         }
         public void addPart(Part part) {
             var id = AllParts.Any()? AllParts.OrderBy(x => x.PartID).Last().PartID : 0;

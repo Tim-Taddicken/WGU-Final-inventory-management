@@ -121,6 +121,7 @@ namespace WGU_final_stuff
         add_Product_Max_Field.Value = product.Max;
         add_Product_Min_Field.Value = product.Min;
         tempProduct = product;
+        Inventory.updateProduct(product.ProductID, product);
         add_Product_Associated_Parts_View.DataSource = tempProduct.AssociatedParts;
 
     }
@@ -132,11 +133,14 @@ namespace WGU_final_stuff
             tempProduct.Max = Decimal.ToInt32(add_Product_Max_Field.Value);
             tempProduct.Min = Decimal.ToInt32(add_Product_Min_Field.Value);
             tempProduct.InStock = Decimal.ToInt32(add_Product_Inventory_Field.Value);
-            tempProduct.InStock = Decimal.ToInt32(add_Product_Inventory_Field.Value);
             tempProduct.Price = add_Product_Price_Field.Value;
+            //tempProduct.ProductID = Convert.ToInt32(add_Product_ID.Text);
             
-            
-            Inventory.addProduct(tempProduct);
+
+
+           // Inventory.removeProduct(tempProduct.ProductID);
+            //Inventory.addProduct(tempProduct);
+            Inventory.updateProduct(tempProduct.ProductID, tempProduct);
             filteredBindingList = Inventory.Products;
            
             Close();
